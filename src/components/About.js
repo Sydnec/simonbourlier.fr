@@ -8,7 +8,7 @@ const About = () => {
       <div className={styles.content}>
         <div className={styles.imageContainer}>
           <img
-            src="/images/photo2.jpg"
+            src="/images/photo.jpg"
             alt="Simon Bourlier"
             className={styles.photo}
           />

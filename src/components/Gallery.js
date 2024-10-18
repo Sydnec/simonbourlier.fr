@@ -33,15 +33,19 @@ const Gallery = () => {
     <div id="gallery" className={styles.gallerySection}>
       <h2>Galerie</h2>
       <div className={styles.gallery}>
-        {photos.map((photo) => (
-          <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`)}>
-            <img
-              src={`https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-              alt={photo.title}
-              className={styles.photo}
-            />
-          </div>
-        ))}
+        {photos.map((photo) => {
+          const largeSize = photo.sizes.find(size => size.label === 'Large');
+          const originalSize = photo.sizes.find(size => size.label === 'Large 2048');
+          return (
+            <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(originalSize.source)}>
+              <img
+                src={largeSize.source}
+                alt={photo.title}
+                className={styles.photo}
+              />
+            </div>
+          );
+        })}
       </div>
       <Modal isOpen={!!selectedPhoto} onClose={closeModal} photo={selectedPhoto} />
     </div>

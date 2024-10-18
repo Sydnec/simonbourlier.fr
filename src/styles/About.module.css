@@ -1,6 +1,6 @@
 /* src/styles/About.module.css */
 .aboutSection {
-    height: 90vh;
+  min-height: 100vh;
     padding: 40px;
     background: #f9f9f9;
     text-align: center;

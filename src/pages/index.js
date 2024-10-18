@@ -2,6 +2,8 @@
 import Head from 'next/head';
 import About from '../components/About';
 import Gallery from '../components/Gallery';
+import Pricing from '../components/Pricing';
+import ContactForm from '../components/ContactForm';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -26,6 +28,8 @@ export default function Home() {
             </a>
             <About />
             <Gallery />
+            <Pricing />
+            <ContactForm />
         </div>
     );
 }

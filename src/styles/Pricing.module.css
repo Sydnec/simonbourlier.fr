@@ -1,0 +1,51 @@
+/* src/styles/Pricing.module.css */
+
+.pricingSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.pricingContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px; /* Limiter la largeur maximale à 800px */
+  gap: 15px; /* Ajouter un gap de 15px entre les cartes */
+}
+
+.pricingCard {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1; /* Assurer que les cartes prennent une largeur égale */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Aligner le texte à gauche */
+}
+
+.pricingCard h3 {
+  margin-bottom: 50px;
+  text-align: center; /* Centrer le titre */
+}
+
+.descriptionList {
+  list-style-type: disc;
+  padding-left: 20px; /* Ajouter un padding pour les puces */
+  margin-bottom: 20px;
+}
+
+.descriptionList li {
+  margin: 10px;
+}
+
+.price {
+  margin-top: 50px;
+  font-weight: bold;
+  color: #333;
+  text-align: right; /* Aligner le prix à droite */
+}
