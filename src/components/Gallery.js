@@ -39,7 +39,7 @@ const Gallery = () => {
           const originalSize = photo.sizes.find(size => size.label === 'Large 2048');
           return (
             <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(originalSize.source)}>
-              <Image
+              <img
                 src={largeSize.source}
                 alt={photo.title}
                 className={styles.photo}
