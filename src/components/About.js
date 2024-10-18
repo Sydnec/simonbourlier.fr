@@ -1,13 +1,14 @@
 // src/components/About.js
 import styles from '../styles/About.module.css';
+import Image from 'next/image';
 
 const About = () => {
   return (
     <div id="about" className={styles.aboutSection}>
-      <h2>À propos</h2>
+      <h2>A propos</h2>
       <div className={styles.content}>
         <div className={styles.imageContainer}>
-          <img
+          <Image
             src="/images/photo.jpg"
             alt="Simon Bourlier"
             className={styles.photo}

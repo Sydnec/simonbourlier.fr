@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import styles from '../styles/Gallery.module.css';
+import Image from 'next/image';
 
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
@@ -38,7 +39,7 @@ const Gallery = () => {
           const originalSize = photo.sizes.find(size => size.label === 'Large 2048');
           return (
             <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(originalSize.source)}>
-              <img
+              <Image
                 src={largeSize.source}
                 alt={photo.title}
                 className={styles.photo}
