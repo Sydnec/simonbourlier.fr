@@ -7,17 +7,17 @@ const About = () => {
     <div id="about" className={styles.aboutSection}>
       <h2>A propos</h2>
       <div className={styles.content}>
+        <div className={styles.textContainer}>
+          <p>
+            Je suis un photographe passionné par le sport, capturant des moments uniques et dynamiques. Mon travail se concentre sur l&aposénergie et l&aposémotion des événements sportifs, offrant des images qui racontent une histoire.
+          </p>
+        </div>
         <div className={styles.imageContainer}>
           <Image
             src="/images/photo.jpg"
             alt="Simon Bourlier"
             className={styles.photo}
           />
-        </div>
-        <div className={styles.textContainer}>
-          <p>
-            Je suis un photographe passionné par le sport, capturant des moments uniques et dynamiques. Mon travail se concentre sur l&aposénergie et l&aposémotion des événements sportifs, offrant des images qui racontent une histoire.
-          </p>
         </div>
       </div>
     </div>

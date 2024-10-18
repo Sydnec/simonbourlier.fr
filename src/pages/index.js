@@ -10,7 +10,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Simon Bourlier | Photographe sportfi</title>
+                <title>Simon Bourlier | Photographe sportif</title>
                 <meta
                     name="description"
                     content="Bienvenue sur mon site vitrine de photographie"

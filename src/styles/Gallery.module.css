@@ -10,11 +10,6 @@
   justify-content: center; /* Centre le contenu verticalement */
 }
 
-.gallerySection h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
 .gallery {
   max-width: 800px;
   display: grid;

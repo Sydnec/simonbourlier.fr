@@ -40,13 +40,11 @@
 .overlay h1 {
     font-size: 3rem;
     margin: 0;
-    font-family: 'Merienda', cursive;
 }
 
 .overlay p {
     font-size: 1.5rem;
     margin: 0;
-    font-family: 'Merienda', cursive;
 }
 
 .cta {
@@ -57,7 +55,6 @@
     text-align: center;
     text-decoration: none;
     color: white;
-    font-family: 'Merienda', cursive;
     z-index: 10; /* Assurer que le CTA est au-dessus des autres éléments */
 }
 
@@ -126,7 +123,5 @@
 }
 
 .textContainer p {
-    font-size: 1.2rem;
     color: #333;
-    font-family: 'Merienda', cursive;
 }
