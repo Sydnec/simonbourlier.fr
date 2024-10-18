@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, photo }) => {
                 <button className={styles.closeButton} onClick={onClose}>
                     ×
                 </button>
-                <Image
+                <img
                     src={photo}
                     alt="Photo en grand"
                     className={styles.modalPhoto}
