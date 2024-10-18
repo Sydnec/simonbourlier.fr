@@ -1,0 +1,26 @@
+/* src/styles/Navbar.module.css */
+.navbar {
+    position: fixed;
+    top: -60px;
+    width: 100%;
+    background: #333;
+    color: white;
+    transition: top 0.3s;
+  }
+  
+  .navbar.visible {
+    top: 0;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+  }
+  

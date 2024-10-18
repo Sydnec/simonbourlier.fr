@@ -1,0 +1,42 @@
+/* src/styles/Gallery.module.css */
+.gallerySection {
+  height: 100vh;
+  padding: 40px;
+  background: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centre le contenu verticalement */
+}
+
+.gallerySection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-family: 'Merienda', cursive;
+}
+
+.gallery {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Augmenter la taille minimale des photos */
+  gap: 20px; /* Augmenter l'espacement entre les photos */
+  justify-content: center;
+}
+
+.photoContainer {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photoContainer:hover .photo {
+  transform: scale(1.1);
+}
