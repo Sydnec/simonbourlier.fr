@@ -14,7 +14,7 @@ const Pricing = () => {
                         <li>Format de livraison : Support numérique</li>
                         <li>Délais de livraison : Sous 72h</li>
                         <li>
-                            Droits d'utilisation : Cession des droits inclus
+                            Droits d utilisation : Cession des droits inclus
                         </li>
                         <li>
                             Frais de déplacement : 0,3€/km au-delà de 30
@@ -31,7 +31,7 @@ const Pricing = () => {
                         <li>Format de livraison : Support numérique</li>
                         <li>Délais de livraison : Sous 72h</li>
                         <li>
-                            Droits d'utilisation : Cession des droits inclus
+                            Droits d utilisation : Cession des droits inclus
                         </li>
                         <li>
                             Frais de déplacement : 0,3€/km au-delà de 30
