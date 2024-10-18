@@ -43,7 +43,7 @@ const ContactForm = () => {
         </button>
       </form>
       <p className={styles.contactInfo}>
-        Si le formulaire ne fonctionne pas, vous pouvez nous contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>.
+        Si le formulaire ne fonctionne pas, vous pouvez me contacter par mail à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>.
       </p>
     </div>
   );
