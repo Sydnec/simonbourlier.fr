@@ -5,4 +5,7 @@ const nextConfig = {
         config.resolve.modules.push(__dirname + '/src');
         return config;
     },
+    images: {
+        domains: ['live.staticflickr.com'],
+    },
 };
