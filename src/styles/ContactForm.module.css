@@ -1,73 +1,136 @@
 /* src/styles/ContactForm.module.css */
 .contactSection {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #f9f9f9;
-    padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+.contactForm label {
+  margin-bottom: 5px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.contactForm textarea {
+  resize: vertical;
+}
+
+.contactForm button {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #1D7373;
+  border: none;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.contactForm button:hover {
+  background-color: #178585;
+}
+
+.contactForm button:focus {
+  outline: none;
+  background-color: #178585;
+}
+
+.contactForm i {
+  margin-left: 12px;
+}
+
+.contactForm .plane {
+  position: absolute;
+  right: 18px;
+}
+
+.contactForm .fa-check,
+.contactForm .fade {
+  animation: fade 2s;
+  animation-fill-mode: forwards;
+}
+
+.contactForm .hidden {
+  display: none;
+}
+
+.contactForm .visible {
+  display: inline;
+}
+
+.contactForm .fly {
+  position: absolute;
+  animation-name: a;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-delay: 0;
+}
+
+.contactForm .done {
+  background-color: #178585;
+}
+
+.contactForm .done:hover {
+  background-color: #178585;
+}
+
+@keyframes fade {
+  0% {
+    color: transparent;
   }
-  
-  .contactForm {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 600px;
+  100% {
+    color: #fff;
   }
-  
-  .contactForm label {
-    margin-bottom: 5px;
-    font-weight: bold;
+}
+
+@keyframes a {
+  0% {
+    top: 10px;
+    left: 80px;
   }
-  
-  .contactForm input,
-  .contactForm textarea {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 16px;
-    box-sizing: border-box;
+  5% {
+    opacity: 0%;
   }
-  
-  .contactForm textarea {
-    resize: vertical;
+  100% {
+    top: -10000px;
+    left: 10000px;
+    transform: scale(-100);
   }
-  
-  .contactForm button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-  }
-  
-  .contactForm button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  .contactForm button:hover:enabled {
-    background-color: #0056b3;
-  }
-  
-  .contactInfo {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .contactInfo a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contactInfo a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+.contactInfo {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.contactInfo a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}

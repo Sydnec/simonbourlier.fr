@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Modal from './Modal';
 import styles from '../styles/Gallery.module.css';
-import Image from 'next/image';
 
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);

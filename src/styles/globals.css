@@ -1,8 +1,12 @@
 /* src/styles/globals.css */
 body {
-  font-family: 'Merienda', cursive;
   margin: 0;
 }
+
+* {
+  font-family: 'Merienda', cursive;
+}
+
 
 h2 {
   font-size: 2.5rem;

@@ -1,6 +1,5 @@
 // src/components/Modal.js
 import styles from '../styles/Modal.module.css';
-import Image from 'next/image';
 
 const Modal = ({ isOpen, onClose, photo }) => {
     if (!isOpen) return null;
