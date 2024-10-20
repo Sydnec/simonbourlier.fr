@@ -1,23 +1,46 @@
 // src/components/HeroSection.js
-import styles from "../styles/HeroSection.module.css";
+import { useEffect, useState } from 'react';
+import styles from '../styles/HeroSection.module.css';
 
 const HeroSection = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleVisibility = () => {
+    if (window.pageYOffset > 300) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
     }
   };
 
+  const scrollToSection = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href').substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', toggleVisibility);
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+    };
+  }, []);
+
   return (
-    <div className={styles.heroSection}>
+    <div id="heroSection" className={styles.heroSection}>
       <div className={styles.background}>
         <div className={styles.overlay}>
           <h1>Simon Bourlier</h1>
           <p>Photographe sportif</p>
         </div>
       </div>
-      <a className={styles.cta} onClick={scrollToAbout}>
+      <a href="#about" className={`${styles.cta} ${isVisible ? styles.visible : ''}`} onClick={scrollToSection}>
         <span className={styles.scrollText}>Me découvrir</span>
         <span className={styles.arrow}></span>
       </a>

@@ -6,6 +6,7 @@ import Pricing from '../components/Pricing';
 import ContactForm from '../components/ContactForm';
 import ScrollToTop from '../components/ScrollToTop';
 import HeroSection from '../components/HeroSection';
+import Navbar from '../components/Navbar';
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
                     content="Bienvenue sur mon site vitrine de photographie"
                 />
             </Head>
+            <Navbar />
             <HeroSection />
             <About />
             <Gallery />

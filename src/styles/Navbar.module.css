@@ -1,0 +1,43 @@
+/* src/styles/Navbar.module.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+    z-index: 1000;
+  }
+  
+  .navbar.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 70px; /* Augmenter la valeur de gap pour plus d'espace horizontal */
+  }
+  
+  .navbar ul li {
+    display: inline;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar ul li a:hover {
+    color: #FFD54F;
+  }
+  
