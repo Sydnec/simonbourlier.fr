@@ -53,12 +53,13 @@ const ContactForm = () => {
     <div id="contact" className={`section ${styles.contactSection}`}>
       <h2>Contact</h2>
       <form ref={form} onSubmit={sendEmail} className={styles.contactForm}>
-        <label>Nom</label>
-        <input type="text" name="user_name" required />
-        <label>Email</label>
-        <input type="email" name="user_email" required />
-        <label>Message</label>
-        <textarea name="message" rows="6" required />
+
+        <label htmlFor="user_name">Nom</label>
+        <input type="text" id="user_name" name="user_name" required />
+        <label htmlFor="user_email">Email</label>
+        <input type="email" id="user_email" name="user_email" required />
+        <label htmlFor="message">Message</label>
+        <textarea id="message" name="message" rows="6" required />
         <button type="submit">
           <span>Envoyer</span>
           <i className={`fa ${icon} fa-lg ${styles.replace}`}></i>
