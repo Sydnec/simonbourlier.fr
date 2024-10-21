@@ -29,7 +29,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div id="heroSection" className={`section ${styles.heroSection}`}>
+    <div id="heroSection" className={styles.heroSection}>
       <div className={styles.background}>
       </div>
       <a href="#about" className={`${styles.cta} ${isVisible ? styles.visible : ''}`} onClick={scrollToSection}>

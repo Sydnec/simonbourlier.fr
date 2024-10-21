@@ -1,6 +1,6 @@
 /* src/styles/HeroSection.module.css */
 .heroSection {
-  padding-top: 0;
+  padding: 0 0 var(--section-padding-top) 0;
   position: relative;
   text-align: center;
   color: white;

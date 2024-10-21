@@ -4,7 +4,8 @@
   --light-color: #f2dcc2;
   --max-width: 900px;
   --border-radius: 10px;
-  --section-padding: 150px;
+  --section-padding-top: 50px;
+  --section-padding-bottom: 250px;
 }
 
 * {
@@ -13,7 +14,11 @@
   padding: 0;
 }
 
-h1, h2, h3, p, li{
+p, li, button, h4, span, input, label, a {
+  font-family: 'Quando', serif;
+}
+
+h1, h2, h3, h4, p, li{
   color: var(--dark-color);
 }
 
@@ -31,5 +36,5 @@ p{
 }
 
 .section {
-  padding: var(--section-padding) 0px;
+  padding: var(--section-padding-top) 0px var(--section-padding-bottom) 0px;
 }
