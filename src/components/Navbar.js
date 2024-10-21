@@ -7,9 +7,10 @@ const Navbar = () => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
+    const navbarHeight = document.querySelector(`.${styles.navbar}`).offsetHeight;
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop,
+        top: targetElement.offsetTop - navbarHeight,
         behavior: 'smooth'
       });
     }
