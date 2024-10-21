@@ -11,14 +11,14 @@
     justify-content: space-around;
     width: 100%;
     max-width: var(--max-width);
-    gap: 50px;
+    gap: var(--pricing-card-padding);
 }
 
 .pricingCard {
     background: white;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
-    padding: 50px 30px;
+    padding: 50px var(--pricing-card-padding);
     flex: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;

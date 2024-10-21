@@ -24,7 +24,7 @@
 }
 
 .menu li {
-  width: 100px;
+  width: var(--navbar-option-width);
   height: 40px;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@
 .menu li a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--navbar-option-font-size);
   transition: color 0.3s ease;
   display: flex;
   justify-content: center;

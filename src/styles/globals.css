@@ -6,6 +6,30 @@
   --border-radius: 10px;
   --section-padding-top: 100px;
   --section-padding-bottom: 250px;
+  --gallery-image-width: 250px;
+  --pricing-card-padding: 50px;
+  --navbar-option-width: 100px;
+  --navbar-option-font-size: 16px;
+}
+
+@media (max-width: 800px) {
+  :root {
+    --max-width: 600px;
+    --gallery-image-width: 150px;
+    --pricing-card-padding: 25px;
+    --navbar-option-width: 100px;
+    --navbar-option-font-size: 16px;
+  }
+}
+
+@media (max-width: 630px) {
+  :root {
+    --max-width: 400px;
+    --gallery-image-width: 100px;
+    --pricing-card-padding: 10px;
+    --navbar-option-width: 60px;
+    --navbar-option-font-size: 11px;
+  }
 }
 
 * {
