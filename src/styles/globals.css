@@ -2,9 +2,9 @@
 :root {
   --dark-color: #1c2f40;
   --light-color: #f2dcc2;
-  --max-width: 900px;
+  --max-width: 1000px;
   --border-radius: 10px;
-  --section-padding-top: 50px;
+  --section-padding-top: 100px;
   --section-padding-bottom: 250px;
 }
 

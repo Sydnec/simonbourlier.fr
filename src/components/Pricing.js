@@ -17,7 +17,7 @@ const Pricing = () => {
                             Cession des droits inclus
                         </li>
                         <li>
-                            Frais de déplacement : 0,3€/km au-delà de 30
+                            Frais de déplacement : 0,50€/km au-delà de 30
                             km
                         </li>
                     </ul>
@@ -34,7 +34,7 @@ const Pricing = () => {
                             Cession des droits inclus
                         </li>
                         <li>
-                            Frais de déplacement : 0,3€/km au-delà de 30
+                            Frais de déplacement : 0,50€/km au-delà de 30
                             km
                         </li>
                     </ul>
