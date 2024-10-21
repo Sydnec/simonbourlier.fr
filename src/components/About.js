@@ -1,5 +1,5 @@
 // src/components/About.js
-import styles from &apos;../styles/About.module.css&apos;;
+import styles from '../styles/About.module.css';
 
 const About = () => {
   return (
