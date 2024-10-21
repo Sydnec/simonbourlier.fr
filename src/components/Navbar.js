@@ -7,10 +7,12 @@ const Navbar = () => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
-    const navbarHeight = document.querySelector(`.${styles.navbar}`).offsetHeight;
+    const navbar = document.querySelector(`.${styles.navbar}`);
+    const navbarHeight = navbar.offsetHeight;
+    const navbarTop = parseInt(window.getComputedStyle(navbar).top, 10);
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop - navbarHeight,
+        top: targetElement.offsetTop - navbarHeight - navbarTop,
         behavior: 'smooth'
       });
     }
@@ -18,19 +20,17 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navbarContent}>
-        <div className={styles.logo}>
-          <a href="#heroSection" onClick={scrollToSection}>
+      <ul className={styles.menu}>
+        <li><a href="#about" onClick={scrollToSection}>A propos</a></li>
+        <li><a href="#gallery" onClick={scrollToSection}>Galerie</a></li>
+        <li className={styles.logoContainer}>
+          <a href="#heroSection" onClick={scrollToSection} className={styles.logo}>
             <Image src="/images/blanc.png" alt="Logo" layout="fill" objectFit="contain" className={styles.logoImage} />
           </a>
-        </div>
-        <ul className={styles.menu}>
-          <li><a href="#about" onClick={scrollToSection}>A propos</a></li>
-          <li><a href="#gallery" onClick={scrollToSection}>Galerie</a></li>
-          <li><a href="#pricing" onClick={scrollToSection}>Tarifs</a></li>
-          <li><a href="#contact" onClick={scrollToSection}>Contact</a></li>
-        </ul>
-      </div>
+        </li>
+        <li><a href="#pricing" onClick={scrollToSection}>Tarifs</a></li>
+        <li><a href="#contact" onClick={scrollToSection}>Contact</a></li>
+      </ul>
     </nav>
   );
 };

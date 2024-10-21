@@ -3,6 +3,6 @@
   background: #f9f9f9;
   display: flex;
   flex-direction: column;
-  gap: 250px; /* Ajuster cette valeur pour l'espace entre les sections */
-  padding-bottom: 125px;
+  gap: 200px;
+  padding-bottom: 100px;
 }

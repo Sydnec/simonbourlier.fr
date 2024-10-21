@@ -9,12 +9,12 @@ const Pricing = () => {
                 <div className={styles.pricingCard}>
                     <h3>Match</h3>
                     <ul className={styles.descriptionList}>
-                        <li>Durée de la séance : 1h30 de prise de vue</li>
-                        <li>Comprend : 20 photos retouchées</li>
-                        <li>Format de livraison : Support numérique</li>
+                        <li>Durée de la prise de vue : 1h30</li>
+                        <li>Nombre de photos retouchées : 50</li>
                         <li>Délais de livraison : Sous 72h</li>
+                        <li>Livraison au format numérique</li>
                         <li>
-                            Droits d utilisation : Cession des droits inclus
+                            Cession des droits inclus
                         </li>
                         <li>
                             Frais de déplacement : 0,3€/km au-delà de 30
@@ -26,12 +26,12 @@ const Pricing = () => {
                 <div className={styles.pricingCard}>
                     <h3>Évènement</h3>
                     <ul className={styles.descriptionList}>
-                        <li>Durée de la séance : 4h de prise de vue</li>
-                        <li>Comprend : 50 photos retouchées</li>
-                        <li>Format de livraison : Support numérique</li>
+                        <li>Durée de la prise de vue : 4h</li>
+                        <li>Nombre de photos retouchées : 50</li>
                         <li>Délais de livraison : Sous 72h</li>
+                        <li>Livraison au format numérique</li>
                         <li>
-                            Droits d utilisation : Cession des droits inclus
+                            Cession des droits inclus
                         </li>
                         <li>
                             Frais de déplacement : 0,3€/km au-delà de 30

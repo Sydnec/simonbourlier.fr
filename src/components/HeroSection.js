@@ -19,7 +19,7 @@ const HeroSection = () => {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop,
+        top: targetElement.offsetTop - 60,
         behavior: 'smooth'
       });
     }

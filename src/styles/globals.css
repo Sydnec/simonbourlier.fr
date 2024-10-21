@@ -3,9 +3,8 @@
   --dark-color: #1c2f40;
   --light-color: #f2dcc2;
   --max-width: 900px;
-  --min-height-section: 900px;
+  --border-radius: 10px;
 }
-
 
 * {
   font-family: 'Merienda', cursive;
@@ -13,7 +12,7 @@
   padding: 0;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, li{
   color: var(--dark-color);
 }
 

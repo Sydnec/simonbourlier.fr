@@ -1,56 +1,64 @@
 /* src/styles/Navbar.module.css */
+
 .navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--dark-color);
+  padding: 10px 20px;
+  border-radius: 50px;
   z-index: 999;
   color: white;
-}
-
-.navbarContent {
-  height: 40px;
-  width: 100%;
-  max-width: var(--max-width);
-  padding: 10px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar ul {
+.menu {
   list-style: none;
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu li {
+  width: 100px;
+  height: 40px;
+  display: flex;
   justify-content: center;
-  flex-grow: 1;
+  align-items: center;
 }
 
-.navbar ul li {
-  text-align: center;
-}
-
-.navbar ul li a {
+.menu li a {
   color: white;
   text-decoration: none;
   font-size: 16px;
-  padding: 10px;
   transition: color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-.navbar ul li a:hover {
+.menu li a:hover {
   color: var(--light-color);
 }
 
-.logo {
-  position: absolute;
-  left: 0;
-  width: 40px;
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
+  width: 100px;
+}
+
+.logo {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .logoImage {

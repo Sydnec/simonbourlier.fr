@@ -8,7 +8,7 @@ const About = () => {
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <p>
-            Je suis un photographe passionné par le sport, capturant des moments uniques et dynamiques. Mon travail se concentre sur l énergie et l émotion des événements sportifs, offrant des images qui racontent une histoire.
+          Je suis un photographe passionné par le sport, capturant des moments uniques et dynamiques. Mon travail se concentre sur l énergie et l émotion des événements sportifs, offrant des images qui racontent une histoire.
           </p>
         </div>
         <div className={styles.imageContainer}>
