@@ -3,7 +3,7 @@ import styles from '../styles/Pricing.module.css';
 
 const Pricing = () => {
     return (
-        <div id="pricing" className={styles.pricingSection}>
+        <div id="pricing" className={`section ${styles.pricingSection}`}>
             <h2>Tarifs</h2>
             <div className={styles.pricingContainer}>
                 <div className={styles.pricingCard}>

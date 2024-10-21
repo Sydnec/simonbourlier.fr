@@ -1,6 +1,5 @@
 /* src/styles/Pricing.module.css */
 .pricingSection {
-    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -50,7 +50,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div id="contact" className={styles.contactSection}>
+    <div id="contact" className={`section ${styles.contactSection}`}>
       <h2>Contact</h2>
       <form ref={form} onSubmit={sendEmail} className={styles.contactForm}>
         <label>Nom</label>

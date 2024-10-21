@@ -1,6 +1,5 @@
 /* src/styles/About.module.css */
 .aboutSection {
-  padding: 40px;
   text-align: center;
   display: flex;
   flex-direction: column;

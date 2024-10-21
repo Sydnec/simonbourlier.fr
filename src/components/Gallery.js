@@ -30,7 +30,7 @@ const Gallery = () => {
   };
 
   return (
-    <div id="gallery" className={styles.gallerySection}>
+    <div id="gallery" className={`section ${styles.gallerySection}`}>
       <h2>Galerie</h2>
       <div className={styles.gallery}>
         {photos.map((photo) => {
