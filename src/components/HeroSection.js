@@ -6,7 +6,7 @@ const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.scrollY > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -15,13 +15,9 @@ const HeroSection = () => {
 
   const scrollToSection = (e) => {
     e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href').substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 60,
-        behavior: 'smooth'
-      });
+    const aboutLink = document.querySelector('a[href="#about"]');
+    if (aboutLink) {
+      aboutLink.click();
     }
   };
 

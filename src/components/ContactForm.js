@@ -5,47 +5,46 @@ import styles from '../styles/ContactForm.module.css';
 
 const ContactForm = () => {
   const form = useRef();
+  const [icon, setIcon] = useState('fa-paper-plane');
+  const [fly, setFly] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // emailjs.sendForm(
-    //   process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
-    //   process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
-    //   form.current,
-    //   process.env.NEXT_PUBLIC_EMAIL_ACCOUNT_ID
-    // )
-    // .then((result) => {
-      console.log('Email envoyé:', 'result.text');
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+      process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
+      form.current,
+      process.env.NEXT_PUBLIC_EMAIL_ACCOUNT_ID
+    )
+    .then(() => {
       animateButton();
-    // }, (error) => {
-    //   console.error('Erreur lors de l\'envoi de l\'email:', error.text);
-    //   alert('Une erreur est survenue, veuillez réessayer.');
-    // });
+    }, (error) => {
+      console.error('Erreur lors de l\'envoi de l\'email:', error.text);
+      alert('Une erreur est survenue, veuillez réessayer.');
+    });
   };
 
   const animateButton = () => {
     const button = document.querySelector(`.${styles.contactForm} button`);
-    const plane = document.querySelector(`.${styles.plane}`);
-    const replace = document.querySelector(`.${styles.replace}`);
     const span = document.querySelector(`.${styles.contactForm} span`);
 
-    plane.classList.add(styles.fly);
-    plane.classList.add(styles.visible);
-    replace.classList.remove('fa-paper-plane');
-    replace.classList.add('fa-check');
-    span.textContent = 'Envoyé';
-    span.classList.add(styles.fade);
-    button.classList.add(styles.done);
+    setFly(true);
+    setVisible(true);
+    setIcon('fa-check');
+    span.textContent = 'Envoyé  ';
+    span.classList.add('fade');
+    button.classList.add('done');
 
     // Réinitialiser le bouton après 2 secondes
     setTimeout(() => {
-      plane.classList.remove(styles.fly, styles.visible);
-      replace.classList.remove('fa-check');
-      replace.classList.add('fa-paper-plane');
+      setFly(false);
+      setVisible(false);
+      setIcon('fa-paper-plane');
       span.textContent = 'Envoyer';
-      span.classList.remove(styles.fade);
-      button.classList.remove(styles.done);
+      span.classList.remove('fade');
+      button.classList.remove('done');
       form.current.reset(); 
     }, 2000);
   };
@@ -62,8 +61,8 @@ const ContactForm = () => {
         <textarea name="message" rows="6" required />
         <button type="submit">
           <span>Envoyer</span>
-          <i className={`fa fa-paper-plane fa-lg ${styles.replace}`}></i>
-          <i className={`fa fa-paper-plane fa-lg ${styles.plane} ${styles.hidden}`}></i>
+          <i className={`fa ${icon} fa-lg ${styles.replace}`}></i>
+          <i className={`fa fa-paper-plane fa-lg ${styles.plane} ${fly ? styles.fly : ''} ${visible ? styles.visible : styles.hidden}`}></i>
         </button>
       </form>
       <p className={styles.contactInfo}>

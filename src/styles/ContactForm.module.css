@@ -1,4 +1,5 @@
 /* src/styles/ContactForm.module.css */
+
 .contactSection {
   padding: 40px;
   display: flex;
@@ -46,7 +47,7 @@
 }
 
 .contactForm button:hover {
-  color: var(--light-color);
+  color: var(--light-color);;
 }
 
 .contactForm button:focus {
@@ -58,26 +59,26 @@
   margin-left: 12px;
 }
 
-.contactForm .plane {
+.plane {
   position: absolute;
   right: 18px;
 }
 
-.contactForm .fa-check,
-.contactForm .fade {
+.fa-check,
+.fade {
   animation: fade 2s;
   animation-fill-mode: forwards;
 }
 
-.contactForm .hidden {
+.hidden {
   display: none;
 }
 
-.contactForm .visible {
+.visible {
   display: inline;
 }
 
-.contactForm .fly {
+.fly {
   position: absolute;
   animation-name: a;
   animation-duration: 10s;
@@ -86,11 +87,11 @@
   animation-delay: 0;
 }
 
-.contactForm .done {
+.done {
   color: var(--light-color);
 }
 
-.contactForm .done:hover {
+.done:hover {
   color: var(--light-color);
 }
 
@@ -99,7 +100,7 @@
     color: transparent;
   }
   100% {
-    color: var(--light-color);
+    color: #fff;
   }
 }
 
@@ -114,7 +115,7 @@
   100% {
     top: -10000px;
     left: 10000px;
-    transform: scale(-100);
+    transform: scale(-5);
   }
 }
 
