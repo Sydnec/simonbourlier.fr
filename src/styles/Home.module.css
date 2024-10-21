@@ -1,0 +1,7 @@
+/* src/styles/Home.module.css */
+.container {
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* Ajuster cette valeur pour l'espace entre les sections */
+}

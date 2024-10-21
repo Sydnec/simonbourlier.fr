@@ -1,10 +1,20 @@
 /* src/styles/globals.css */
-body {
-  margin: 0;
+:root {
+  --dark-color: #1c2f40;
+  --light-color: #f2dcc2;
+  --max-width: 900px;
+  --min-height-section: 900px;
 }
+
 
 * {
   font-family: 'Merienda', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, p {
+  color: var(--dark-color);
 }
 
 h2 {

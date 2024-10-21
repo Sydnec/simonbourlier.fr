@@ -1,12 +1,10 @@
 /* src/styles/ContactForm.module.css */
 .contactSection {
-  min-height: 95vh;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
-  padding: 20px;
 }
 
 .contactForm {
@@ -40,7 +38,7 @@
   padding: 12px 18px;
   font-size: 20px;
   color: #fff;
-  background-color: #1D7373;
+  background-color: var(--dark-color);
   border: none;
   border-radius: 3px;
   position: relative;
@@ -48,12 +46,12 @@
 }
 
 .contactForm button:hover {
-  background-color: #178585;
+  color: var(--light-color);
 }
 
 .contactForm button:focus {
   outline: none;
-  background-color: #178585;
+  color: var(--light-color);
 }
 
 .contactForm i {
@@ -89,11 +87,11 @@
 }
 
 .contactForm .done {
-  background-color: #178585;
+  color: var(--light-color);
 }
 
 .contactForm .done:hover {
-  background-color: #178585;
+  color: var(--light-color);
 }
 
 @keyframes fade {
@@ -101,7 +99,7 @@
     color: transparent;
   }
   100% {
-    color: #fff;
+    color: var(--light-color);
   }
 }
 

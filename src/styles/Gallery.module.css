@@ -1,8 +1,6 @@
 /* src/styles/Gallery.module.css */
 .gallerySection {
-  min-height: 95vh;
   padding: 40px;
-  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -11,9 +9,9 @@
 }
 
 .gallery {
-  max-width: 800px;
+  max-width: var(--max-width);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Augmenter la taille minimale des photos */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Augmenter la taille minimale des photos */
   gap: 15px; /* Augmenter l'espacement entre les photos */
   justify-content: center;
 }

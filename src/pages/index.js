@@ -1,4 +1,5 @@
 // src/pages/index.js
+import styles from '../styles/Home.module.css';
 import Head from 'next/head';
 import About from '../components/About';
 import Gallery from '../components/Gallery';
@@ -10,7 +11,7 @@ import Navbar from '../components/Navbar';
 
 export default function Home() {
     return (
-        <div>
+        <div className={styles.container}>
             <Head>
                 <title>Simon Bourlier | Photographe sportif</title>
                 <meta

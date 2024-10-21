@@ -1,17 +1,15 @@
 /* src/styles/About.module.css */
 .aboutSection {
-  min-height: 95vh;
   padding: 40px;
-  background: #f9f9f9;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centre le contenu verticalement */
+  justify-content: center;
   align-items: center;
 }
 
 .content {
-  max-width: 800px;
+  max-width: var(--max-width);
   display: flex;
   flex-direction: row;
   align-items: center;

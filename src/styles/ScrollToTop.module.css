@@ -17,7 +17,7 @@
 }
 
 .scrollButton {
-  background-color: #1D7373;
+  background-color: var(--dark-color);
   color: white;
   border: none;
   border-radius: 50%;
@@ -30,6 +30,6 @@
 }
 
 .scrollButton:hover {
-  background-color: #178585;
+  color: var(--light-color);
   transform: scale(1.1); 
 }

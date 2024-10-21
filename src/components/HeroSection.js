@@ -35,10 +35,6 @@ const HeroSection = () => {
   return (
     <div id="heroSection" className={styles.heroSection}>
       <div className={styles.background}>
-        <div className={styles.overlay}>
-          <h1>Simon Bourlier</h1>
-          <p>Photographe sportif</p>
-        </div>
       </div>
       <a href="#about" className={`${styles.cta} ${isVisible ? styles.visible : ''}`} onClick={scrollToSection}>
         <span className={styles.scrollText}>Me découvrir</span>

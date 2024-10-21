@@ -5,28 +5,23 @@ import styles from '../styles/ContactForm.module.css';
 
 const ContactForm = () => {
   const form = useRef();
-  const [loading, setLoading] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true);
 
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
-      form.current,
-      process.env.NEXT_PUBLIC_EMAIL_ACCOUNT_ID
-    )
-    .then((result) => {
-      console.log('Email envoyé:', result.text);
-      setLoading(false);
+    // emailjs.sendForm(
+    //   process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+    //   process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
+    //   form.current,
+    //   process.env.NEXT_PUBLIC_EMAIL_ACCOUNT_ID
+    // )
+    // .then((result) => {
+      console.log('Email envoyé:', 'result.text');
       animateButton();
-      form.current.reset(); 
-    }, (error) => {
-      console.error('Erreur lors de l\'envoi de l\'email:', error.text);
-      alert('Une erreur est survenue, veuillez réessayer.');
-      setLoading(false);
-    });
+    // }, (error) => {
+    //   console.error('Erreur lors de l\'envoi de l\'email:', error.text);
+    //   alert('Une erreur est survenue, veuillez réessayer.');
+    // });
   };
 
   const animateButton = () => {
@@ -51,6 +46,7 @@ const ContactForm = () => {
       span.textContent = 'Envoyer';
       span.classList.remove(styles.fade);
       button.classList.remove(styles.done);
+      form.current.reset(); 
     }, 2000);
   };
 
@@ -64,14 +60,14 @@ const ContactForm = () => {
         <input type="email" name="user_email" required />
         <label>Message</label>
         <textarea name="message" rows="6" required />
-        <button type="submit" disabled={loading}>
-          <span>{loading ? 'Envoi en cours...' : 'Envoyer'}</span>
+        <button type="submit">
+          <span>Envoyer</span>
           <i className={`fa fa-paper-plane fa-lg ${styles.replace}`}></i>
           <i className={`fa fa-paper-plane fa-lg ${styles.plane} ${styles.hidden}`}></i>
         </button>
       </form>
       <p className={styles.contactInfo}>
-        Si le formulaire ne fonctionne pas, vous pouvez me contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>.
+        Vous pouvez également me contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>.
       </p>
     </div>
   );
