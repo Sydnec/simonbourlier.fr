@@ -1,4 +1,3 @@
-// src/pages/api/photos.js
 import axios from 'axios';
 
 const apiKey = process.env.FLICKR_API_KEY;
@@ -78,7 +77,7 @@ const fetchPhotoSizes = async (photoId) => {
   }
 };
 
-export default async (req, res) => {
+const handler = async (req, res) => {
   try {
     const photos = await fetchPhotos();
     res.status(200).json(photos);
@@ -87,3 +86,5 @@ export default async (req, res) => {
     res.status(500).json({ error: 'Erreur lors de la récupération des photos' });
   }
 };
+
+export default handler;
