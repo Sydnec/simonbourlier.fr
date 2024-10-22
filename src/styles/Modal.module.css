@@ -14,8 +14,7 @@
   
   .modalContent {
     position: relative;
-    background: none; /* Enlever le fond blanc */
-    padding: 0; /* Enlever le padding */
+    padding: 0;
     width: 90%;
     height: 90%;
     overflow: hidden;

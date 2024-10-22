@@ -25,7 +25,8 @@ const Navbar = () => {
             <Image
               src="/images/blanc.png"
               alt="Logo"
-              fill
+              width={100}
+              height={40}
               style={{ objectFit: 'contain' }}
               className={styles.logoImage}
             />
