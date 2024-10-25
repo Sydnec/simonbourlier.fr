@@ -1,0 +1,42 @@
+/* src/styles/Footer.module.css */
+.footer {
+  background-color: var(--dark-color);
+  color: #fff;
+  text-align: left;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer button {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: #fff 2px solid;
+}
+
+.footer button:hover {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+.container > p {
+  color: white;
+}
+
+.container h3 {
+  padding-bottom: 10px;
+}
