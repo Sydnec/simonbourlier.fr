@@ -1,7 +1,6 @@
 /* src/styles/ContactForm.module.css */
 
 .contactSection {
-  padding-bottom: calc(var(--section-padding-top) + var(--section-padding-bottom));
   display: flex;
   flex-direction: column;
   justify-content: center;
