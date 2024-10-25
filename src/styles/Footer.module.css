@@ -9,18 +9,17 @@
   align-items: center;
 }
 
-.footer button {
-  background-color: transparent;
-  color: #fff;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: #fff 2px solid;
+.container > * {
+  font-size: 0.8em;
 }
 
-.footer button:hover {
-  background-color: var(--light-color);
-  color: var(--dark-color);
+.footer a {
+  cursor: pointer;
+}
+
+.footer a:hover {
+  color: var(--light-color);
+  text-decoration: underline;
 }
 
 .container {

@@ -18,22 +18,22 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <p>© 2024 Simon Bourlier. Tous droits réservés.</p>
-        <button onClick={handleOpenModal} className={styles.legalButton}>
+        <a onClick={handleOpenModal} className={styles.legalButton}>
           Mentions légales
-        </button>
+        </a>
         <LegalModal show={showModal} onClose={handleCloseModal}>
           <section>
             <h3>Éditeur du site</h3>
             <p>
-              Nom : Simon Bourlier, entrepreneur individuel
+            Nom : Simon Bourlier{/*, entrepreneur individuel */}
               <br />
               Adresse : 9 rue Jan Castagno, 30100 Alès, France
               <br />
               Téléphone : +33 6 49 59 21 29
               <br />
               Email : contact@simonbourlier.fr
-              <br />
-              Numéro SIRET : 123 456 789 00010
+              {/* <br />
+              Numéro SIRET : 123 456 789 00010 */}
             </p>
           </section>
           <section>
