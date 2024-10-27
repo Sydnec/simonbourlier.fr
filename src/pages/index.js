@@ -24,7 +24,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <About />
-        {/* <Gallery /> */}
+        <Gallery />
         <Pricing />
         <ContactForm />
         <ScrollToTop />
