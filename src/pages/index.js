@@ -6,6 +6,7 @@ import HeroSection from '../components/HeroSection';
 import About from '../components/About';
 import Gallery from '../components/Gallery';
 import Pricing from '../components/Pricing';
+import Customers from '../components/Customers';
 import ContactForm from '../components/ContactForm';
 import ScrollToTop from '../components/ScrollToTop';
 import Footer from '../components/Footer';
@@ -39,6 +40,7 @@ export default function Home() {
                 <About />
                 <Gallery />
                 <Pricing />
+                <Customers />
                 <ContactForm />
                 <ScrollToTop />
                 <Footer />

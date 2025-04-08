@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: calc(var(--section-padding-bottom)/2);
 }
 
 .pricingContainer {

@@ -1,0 +1,30 @@
+/* src/styles/About.module.css */
+.customersSection {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-color);
+    padding: calc(var(--section-padding-top)/2);
+  }
+
+  .customersSection h3 {
+    color: var(--light-color);
+  }
+  
+  .logoContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .logo {
+    width: calc(var(--gallery-image-width)/1.5);
+    height: calc(var(--gallery-image-width)/1.5);
+    position: relative;
+  }
+
+  
