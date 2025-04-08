@@ -34,10 +34,11 @@ const Pricing = () => {
                     </ul>
                     <p className={styles.price}>A partir de 250€</p>
                 </div>
-                <p className={styles.note}>
-                    * Nombre de photos minimum garanti, des photos supplémentaires peuvent être livrées.
-                </p>
             </div>
+            <p className={styles.note}>
+                * Nombre de photos minimum garanti, des photos supplémentaires
+                peuvent être livrées.
+            </p>
         </div>
     );
 };
