@@ -22,21 +22,26 @@
   
   .closeButton {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    background: none;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
     border: none;
-    font-size: 30px; 
-    cursor: pointer;
     color: white;
-    transition: transform 0.2s ease-in-out; 
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
   }
   
   .closeButton:hover {
-    transform: scale(1.2); 
+    background: rgba(255, 255, 255, 0.2);
   }
-  
+
   .modalPhoto {
     width: 100%;
     height: 100%;

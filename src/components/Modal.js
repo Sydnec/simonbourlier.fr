@@ -6,10 +6,10 @@ const Modal = ({ isOpen, onClose, photo }) => {
 
   return (
     <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={onClose}>
+       <button className={styles.closeButton} onClick={onClose}>
           ×
         </button>
+      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <img src={photo} alt="Photo en grand" className={styles.modalPhoto} />
       </div>
     </div>
