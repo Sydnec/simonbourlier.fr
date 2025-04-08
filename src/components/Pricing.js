@@ -10,7 +10,7 @@ const Pricing = () => {
                     <h3>Match</h3>
                     <ul className={styles.descriptionList}>
                         <li>Durée de la prise de vue : 1h30</li>
-                        <li>Nombre de photos retouchées : 20</li>
+                        <li>Nombre minimal de photos retouchées : 20</li>
                         <li>Délais de livraison : Sous 72h</li>
                         <li>Livraison au format numérique</li>
                         <li>
@@ -27,7 +27,7 @@ const Pricing = () => {
                     <h3>Évènement</h3>
                     <ul className={styles.descriptionList}>
                         <li>Durée de la prise de vue : 4h</li>
-                        <li>Nombre de photos retouchées : 50</li>
+                        <li>Nombre minimal de photos retouchées : 50</li>
                         <li>Délais de livraison : Sous 72h</li>
                         <li>Livraison au format numérique</li>
                         <li>
