@@ -17,7 +17,6 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p>© 2024 Simon Bourlier. Tous droits réservés.</p>
         <a onClick={handleOpenModal} className={styles.legalButton}>
           Mentions légales
         </a>

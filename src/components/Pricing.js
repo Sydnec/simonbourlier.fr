@@ -7,7 +7,7 @@ const Pricing = () => {
             <h2>Tarifs</h2>
             <div className={styles.pricingContainer}>
                 <div className={styles.pricingCard}>
-                    <h3>Match</h3>
+                    <h3>Formule "Match"</h3>
                     <ul className={styles.descriptionList}>
                         <li>Durée de la prise de vue : 1h30</li>
                         <li>Nombre de photos retouchées : 20*</li>
@@ -21,7 +21,7 @@ const Pricing = () => {
                     <p className={styles.price}>A partir de 130€</p>
                 </div>
                 <div className={styles.pricingCard}>
-                    <h3>Évènement</h3>
+                    <h3>Formule "Évènement"</h3>
                     <ul className={styles.descriptionList}>
                         <li>Durée de la prise de vue : 4h</li>
                         <li>Nombre de photos retouchées : 50*</li>
