@@ -22,8 +22,8 @@
   }
   
   .logo {
-    width: calc(var(--gallery-image-width)/1.5);
-    height: calc(var(--gallery-image-width)/1.5);
+    width: calc(var(--gallery-image-width)/2);
+    height: calc(var(--gallery-image-width)/2);
     position: relative;
   }
 

@@ -1,12 +1,16 @@
-import styles from '../styles/Customers.module.css';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-
-const logos = [
-    { src: '/images/logos/RCN.png', alt: 'Rugby Club de Nîmes' },
-    { src: '/images/logos/centurions.png', alt: 'Centurions de Nîmes' },
-];
+import styles from '../styles/Customers.module.css';
 
 const Customers = () => {
+    const [logos, setLogos] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/customers')
+            .then(res => res.json())
+            .then(data => setLogos(data));
+    }, []);
+
     return (
         <div id="customers" className={`section ${styles.customersSection}`}>
             <h3>Ils m&apos;ont fait confiance</h3>

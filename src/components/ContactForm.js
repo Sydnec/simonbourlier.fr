@@ -67,7 +67,7 @@ const ContactForm = () => {
         </button>
       </form>
       <p className={styles.contactInfo}>
-        Vous pouvez également me contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>.
+        Vous pouvez également me contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>
       </p>
     </div>
   );

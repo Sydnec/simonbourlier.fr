@@ -1,7 +1,8 @@
 /* src/styles/globals.css */
 :root {
-  --dark-color: #1c2f40;
-  --light-color: #f2dcc2;
+  --dark-color: #0c0c0c;
+  --light-color: #f3f3f3;
+  --light-selection-color: #f2dcc2;
   --max-width: 1000px;
   --border-radius: 10px;
   --section-padding-top: 100px;
@@ -14,7 +15,7 @@
 }
 
 * {
-  font-family: 'Merienda', cursive;
+  font-family: "Noto Sans", sans-serif;
   margin: 0;
   padding: 0;
 }

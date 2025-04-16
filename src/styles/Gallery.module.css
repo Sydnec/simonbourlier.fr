@@ -37,4 +37,5 @@
 
 .photoContainer:hover .photo {
   transform: scale(1.1);
+  border-radius: var(--border-radius);
 }

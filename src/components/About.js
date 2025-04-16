@@ -9,7 +9,7 @@ const About = () => {
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <p>
-            &emsp;&emsp;Je m&apos;appelle Simon Bourlier et je me suis pris de
+            Je m&apos;appelle Simon Bourlier et je me suis pris de
             passion pour la photographie en 2018. À ce moment-là, j&apos;étais
             alors au lycée et j&apos;ai eu l&apos;occasion d&apos;immortaliser
             le tournoi de volleyball annuel. Ce premier pas dans la photographie
@@ -19,7 +19,7 @@ const About = () => {
             anime un sportif.
             <br />
             <br />
-            &emsp;&emsp;Par la suite, ayant grandi à côté du Mans et du mythique
+            Par la suite, ayant grandi à côté du Mans et du mythique
             circuit des 24 heures, il était impensable de ne pas photographier
             ces femmes et ces hommes, donnant tout pour leur sport et repoussant
             les limites. Ainsi, j&apos;ai découvert le plaisir de sublimer leurs

@@ -18,20 +18,20 @@
 
 .scrollButton {
   background-color: var(--dark-color);
-  color: white;
+  color: var(--light-color);
   border: none;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   padding-bottom: 5px;
   cursor: pointer;
-  border: 2px solid white;
+  border: 2px solid var(--light-color);
   font-size: 24px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .scrollButton:hover {
-  color: var(--light-color);
-  border: 2px solid var(--light-color);
+  color: var(--light-selection-color);
+  border: 2px solid var(--light-selection-color);
   transform: scale(1.1); 
 }

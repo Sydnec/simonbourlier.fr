@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import About from '../components/About';
-import Gallery from '../components/Gallery';
+import Gallery from '../components/Gallery.js';
 import Pricing from '../components/Pricing';
 import Customers from '../components/Customers';
 import ContactForm from '../components/ContactForm';
