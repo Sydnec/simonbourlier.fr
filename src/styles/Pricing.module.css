@@ -30,19 +30,25 @@
 
 .pricingCard h3 {
     text-align: center;
+    padding-bottom: 3vh;
 }
 
 .descriptionList {
     list-style-type: disc;
     padding: 0px ;
-    margin: 2vw;
+    margin: 0px 20px;
+    list-style: none;
 }
 
 .descriptionList li {
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
     padding: 1.5vh 0px;
 }
 
 .price {
+    padding-top: 3vh;
     font-weight: bold;
     text-align: right;
 }
