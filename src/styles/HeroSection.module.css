@@ -24,12 +24,10 @@
 
 .overlay {
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  top: 15%;
   text-align: center;
   z-index: 2;
-  padding: 0 20px;
 }
 
 .overlay h1 {
