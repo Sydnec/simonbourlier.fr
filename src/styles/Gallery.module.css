@@ -25,20 +25,16 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  border-radius: var(--border-radius);
 }
 
 .photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--border-radius);
   transition: transform 0.3s ease;
 }
 
 .photoContainer:hover .photo {
   transform: scale(1.1);
-}
-
-.photoContainer:hover {
-  border-radius: var(--border-radius);
 }
