@@ -35,7 +35,6 @@
 .contactForm button {
     width: 100%;
     padding: 12px 18px;
-    font-size: 16px;
     background-color: var(--dark-color);
     border: none;
     border-radius: 4px;
@@ -44,6 +43,7 @@
 }
 
 .contactForm button * {
+  font-size: 16px;
   color: var(--light-color);
 }
 
