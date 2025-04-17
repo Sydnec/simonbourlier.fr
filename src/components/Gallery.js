@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -22,23 +22,24 @@ const Gallery = () => {
     fetchPhotos();
   }, []);
 
-  const openModal = (photoUrl) => {
-    setSelectedPhoto(photoUrl);
+  const openModal = (index) => {
+    setSelectedIndex(index);
   };
 
   const closeModal = () => {
-    setSelectedPhoto(null);
+    setSelectedIndex(null);
   };
+
+  const selectedPhoto = selectedIndex !== null ? photos[selectedIndex]?.sizes.find(s => s.label === 'Large 2048')?.source : null;
 
   return (
     <div id="gallery" className={`section ${styles.gallerySection}`}>
       <h2>Galerie</h2>
       <div className={styles.gallery}>
-      {photos.map((photo) => {
+        {photos.map((photo, index) => {
           const largeSize = photo.sizes.find(size => size.label === 'Large');
-          const originalSize = photo.sizes.find(size => size.label === 'Large 2048');
           return (
-            <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(originalSize.source)}>
+            <div key={photo.id} className={styles.photoContainer} onClick={() => openModal(index)}>
               <Image
                 src={largeSize.source}
                 alt={photo.title}
@@ -50,7 +51,13 @@ const Gallery = () => {
           );
         })}
       </div>
-      <Modal isOpen={!!selectedPhoto} onClose={closeModal} photo={selectedPhoto} />
+      <Modal
+        isOpen={selectedIndex !== null}
+        onClose={closeModal}
+        photo={selectedPhoto}
+        onNext={() => setSelectedIndex((prev) => (prev + 1) % photos.length)}
+        onPrev={() => setSelectedIndex((prev) => (prev - 1 + photos.length) % photos.length)}
+      />
     </div>
   );
 };
