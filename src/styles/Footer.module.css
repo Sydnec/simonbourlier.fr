@@ -10,6 +10,7 @@
 }
 
 .footer a {
+  color: var(--light-color);
   cursor: pointer;
 }
 
