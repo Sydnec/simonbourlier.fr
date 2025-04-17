@@ -65,6 +65,10 @@ h3 {
     --gallery-image-gap: 5px;
   }
 
+  * {
+    font-size: 9px;
+  }
+
   h1 {
     font-size: 24px;
   }
@@ -76,9 +80,5 @@ h3 {
   
   h3 {
     font-size: 14px;
-  }
-  
-  p, li, label, input, textarea{
-    font-size: 9px;
   }
 }
