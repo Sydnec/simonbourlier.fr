@@ -68,15 +68,15 @@ p{
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.8vw;
     margin-bottom: 70px;
   }
   
   h3 {
-    font-size: 1.3rem;
+    font-size: 1.3vw;
   }
   
   p{
-    font-size: 0.6rem;
+    font-size: 0.6vw;
   }
 }
