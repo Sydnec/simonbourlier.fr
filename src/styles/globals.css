@@ -56,7 +56,7 @@ p, li, label, input, textarea{
     --gallery-image-width: 180px;
     --pricing-card-padding: 25px;
     --navbar-option-width: 100px;
-    --navbar-option-font-size: 16px;
+    --navbar-option-font-size: 12px;
     --gallery-image-gap: 10px;
   }
 }
