@@ -27,6 +27,7 @@
   }
   
   .content h2 {
+    font-family: 'Quando', serif;
     margin: 0;
     color: var(--light-color);
   }
