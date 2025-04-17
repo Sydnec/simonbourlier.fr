@@ -13,7 +13,7 @@ const Customers = () => {
 
     return (
         <div id="customers" className={`section ${styles.customersSection}`}>
-            <h3>Ils m&apos;ont fait confiance</h3>
+            <h2>Ils m&apos;ont fait confiance</h2>
             <div className={styles.logoContainer}>
                 {logos.map((logo, index) => (
                     <div key={index} className={styles.logo}>

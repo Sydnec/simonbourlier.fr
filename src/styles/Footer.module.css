@@ -9,10 +9,6 @@
   align-items: center;
 }
 
-.container > * {
-  font-size: 0.8em;
-}
-
 .footer a {
   cursor: pointer;
 }

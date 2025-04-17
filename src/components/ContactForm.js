@@ -53,7 +53,6 @@ const ContactForm = () => {
     <div id="contact" className={`section ${styles.contactSection}`}>
       <h2>Contact</h2>
       <form ref={form} onSubmit={sendEmail} className={styles.contactForm}>
-
         <label htmlFor="user_name">Nom</label>
         <input type="text" id="user_name" name="user_name" required />
         <label htmlFor="user_email">Email</label>

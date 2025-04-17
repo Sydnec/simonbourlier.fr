@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 600px;
+  max-width: calc(var(--max-width)/2);
 }
 
 .contactForm label {
@@ -25,7 +25,6 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 100%;
-  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -36,7 +35,7 @@
 .contactForm button {
   width: 100%;
   padding: 12px 18px;
-  font-size: 20px;
+  font-size: 14px;
   color: var(--light-color);
   background-color: var(--dark-color);
   border: none;
@@ -120,7 +119,6 @@
 
 .contactInfo {
   margin-top: 20px;
-  font-size: 14px;
   color: #555;
 }
 

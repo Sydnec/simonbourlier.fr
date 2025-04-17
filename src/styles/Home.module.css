@@ -1,6 +1,6 @@
 /* src/styles/Home.module.css */
 .container {
-  background-color: #f9f9f9;
+  background-color: var(--light-color);
   display: flex;
   flex-direction: column;
 }
