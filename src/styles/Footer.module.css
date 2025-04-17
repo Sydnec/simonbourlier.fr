@@ -1,7 +1,7 @@
 /* src/styles/Footer.module.css */
 .footer {
   background-color: var(--dark-color);
-  color: #fff;
+  color: var(--light-color);
   text-align: left;
   padding: 20px 0;
   display: flex;
@@ -29,7 +29,7 @@
 }
 
 .container > p {
-  color: white;
+  color: var(--light-color);
 }
 
 .container h3 {
