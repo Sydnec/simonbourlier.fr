@@ -15,17 +15,15 @@
 }
 
 * {
-  font-family: "Noto Sans", sans-serif;
+  font-family: 'Quando', serif;
   margin: 0;
   padding: 0;
-}
-
-p, li, button, h4, span, input, label, a, textarea {
-  font-family: 'Quando', serif;
-}
-
-h1, h2, h3, h4, p, li{
+  font-size: 14px;
   color: var(--dark-color);
+}
+
+h1, h2, h3 {
+  font-family: "Noto Sans", sans-serif;
 }
 
 h1 {
@@ -39,10 +37,6 @@ h2 {
 
 h3 {
   font-size: 20px;
-}
-
-p, li, label, input, textarea{
-  font-size: 14px;
 }
 
 .section {

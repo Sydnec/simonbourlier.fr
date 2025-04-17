@@ -54,14 +54,15 @@
 }
 
 .scrollText {
+  color: var(--light-color);
   display: block;
   margin-bottom: 3px;
 }
 
 .arrow {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-left: 2px solid var(--light-color);
   border-bottom: 2px solid var(--light-color);
   transform: rotate(-45deg);
@@ -73,7 +74,7 @@
   border-left: 2px solid var(--light-selection-color);
   border-bottom: 2px solid var(--light-selection-color);
 }
-.cta:hover {
+.cta:hover .scrollText {
   color: var(--light-selection-color);
 }
 
