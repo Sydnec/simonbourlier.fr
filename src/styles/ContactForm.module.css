@@ -1,132 +1,133 @@
 /* src/styles/ContactForm.module.css */
 
 .contactSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .contactForm {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: calc(var(--max-width)/1.5);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: calc(var(--max-width) / 1.5);
 }
 
 .contactForm label {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .contactForm input,
 .contactForm textarea {
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contactForm textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 .contactForm button {
-  width: 100%;
-  padding: 12px 18px;
-  font-size: 14px;
-  color: var(--light-color);
-  background-color: var(--dark-color);
-  border: none;
-  border-radius: 4px;
-  position: relative;
-  cursor: pointer;
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 14px;
+    color: var(--light-color);
+    background-color: var(--dark-color);
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
 }
 
 .contactForm button:hover {
-  color: var(--light-selection-color);;
+    color: var(--light-selection-color);
 }
 
 .contactForm button:focus {
-  outline: none;
-  color: var(--light-selection-color);
+    outline: none;
+    color: var(--light-selection-color);
 }
 
 .contactForm i {
-  margin-left: 12px;
+    margin-left: 12px;
 }
 
 .plane {
-  position: absolute;
-  right: 18px;
+    position: absolute;
+    right: 18px;
 }
 
 .fa-check,
 .fade {
-  animation: fade 2s;
-  animation-fill-mode: forwards;
+    animation: fade 2s;
+    animation-fill-mode: forwards;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 .visible {
-  display: inline;
+    display: inline;
 }
 
 .fly {
-  position: absolute;
-  animation-name: a;
-  animation-duration: 10s;
-  animation-timing-function: ease-in;
-  animation-fill-mode: forwards;
-  animation-delay: 0;
+    position: absolute;
+    animation-name: a;
+    animation-duration: 10s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: 0;
 }
 
 .done {
-  color: var(--light-color);
+    color: var(--light-color);
 }
 
 .done:hover {
-  color: var(--light-color);
+    color: var(--light-color);
 }
 
 @keyframes fade {
-  0% {
-    color: transparent;
-  }
-  100% {
-    color: #fff;
-  }
+    0% {
+        color: transparent;
+    }
+    100% {
+        color: #fff;
+    }
 }
 
 @keyframes a {
-  0% {
-    top: 10px;
-    left: 80px;
-  }
-  5% {
-    opacity: 0%;
-  }
-  100% {
-    top: -10000px;
-    left: 10000px;
-    transform: scale(-5);
-  }
+    0% {
+        top: 10px;
+        left: 80px;
+    }
+    5% {
+        opacity: 0%;
+    }
+    100% {
+        top: -10000px;
+        left: 10000px;
+        transform: scale(-5);
+    }
 }
 
 .contactInfo {
-  margin-top: 20px;
-  color: #555;
+    font-size: 0.7em;
+    margin-top: 20px;
+    color: #555;
 }
 
 .contactInfo a {
-  color: var(--dark-color);
-  text-decoration: none;
+    color: var(--dark-color);
+    text-decoration: none;
 }
 
 .contactInfo a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }

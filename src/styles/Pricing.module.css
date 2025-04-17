@@ -35,21 +35,21 @@
 .descriptionList {
     list-style-type: disc;
     padding: 0px ;
-    margin: 25px;
+    margin: 2vw;
 }
 
 .descriptionList li {
-    padding: 1.5vh 7px 1.5vh 0px;
+    padding: 1.5vh 0px;
 }
 
 .price {
-    padding-right: 10px;
     font-weight: bold;
     text-align: right;
 }
 
 .note {
     font-style: italic;
+    font-size: 0.7em;
     color: #666;
     margin-top: 2vh;
     text-align: center;
