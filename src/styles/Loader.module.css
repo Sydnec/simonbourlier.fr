@@ -22,9 +22,9 @@
   }
   
   .content h1 {
-    font-size: 4.5rem;
+    font-size: 5vw;
     margin: 0;
-    color: #fefefe;
+    color: var(--light-color);
   }
   
   .content p {

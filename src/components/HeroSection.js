@@ -33,7 +33,7 @@ const HeroSection = () => {
       <div className={styles.background}>
         <div className={styles.overlay}>
           <h1>Simon Bourlier</h1>
-          <p>Photographe Sportif</p>
+          <h2>Photographe Sportif</h2>
         </div>
       </div>
       <a
