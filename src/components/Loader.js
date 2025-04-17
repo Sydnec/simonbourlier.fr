@@ -14,7 +14,7 @@ const Loader = () => {
     <div className={`${styles.loader} ${!loading ? styles.slideOut : ''}`}>
       <div className={styles.content}>
         <h1>Simon Bourlier</h1>
-        <p>Photographe sportif</p>
+        <h2>Photographe sportif</h2>
       </div>
     </div>
   );
