@@ -20,7 +20,7 @@
   padding: 0;
 }
 
-p, li, button, h4, span, input, label, a {
+p, li, button, h4, span, input, label, a, textarea {
   font-family: 'Quando', serif;
 }
 
@@ -41,7 +41,7 @@ h3 {
   font-size: 20px;
 }
 
-p, li, label, input{
+p, li, label, input, textarea{
   font-size: 14px;
 }
 
@@ -72,19 +72,19 @@ p, li, label, input{
   }
 
   h1 {
-    font-size: max(2.5vw, 1.8rem);
+    font-size: 24px;
   }
-
+  
   h2 {
-    font-size: max(1.8vw, 1.2rem);
+    font-size: 18px;
     margin-bottom: 70px;
   }
   
   h3 {
-    font-size: max(1.3vw, 1rem);
+    font-size: 14px;
   }
   
-  p{
-    font-size: max(0.6vw, 0.4rem);
+  p, li, label, input, textarea{
+    font-size: 9px;
   }
 }
