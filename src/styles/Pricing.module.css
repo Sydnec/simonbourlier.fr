@@ -18,7 +18,6 @@
 .pricingCard {
     background: white;
     border: 1px solid #ddd;
-    border-radius: var(--border-radius);
     padding: 50px var(--pricing-card-padding);
     flex: 1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -8,24 +8,27 @@ const About = () => {
       <h2>A propos</h2>
       <div className={styles.content}>
         <div className={styles.textContainer}>
-          <p>
-            Je m&apos;appelle Simon Bourlier et je me suis pris de
-            passion pour la photographie en 2018. À ce moment-là, j&apos;étais
-            alors au lycée et j&apos;ai eu l&apos;occasion d&apos;immortaliser
-            le tournoi de volleyball annuel. Ce premier pas dans la photographie
-            sportive a été un déclic, j&apos;ai tout de suite pris énormément de
-            plaisir à immortaliser ces infimes instants de joie, de rage, de
-            concentration extrême, d&apos;esprit d&apos;équipe et tout ce qui
-            anime un sportif.
-            <br />
-            <br />
-            Par la suite, ayant grandi à côté du Mans et du mythique
-            circuit des 24 heures, il était impensable de ne pas photographier
-            ces femmes et ces hommes, donnant tout pour leur sport et repoussant
-            les limites. Ainsi, j&apos;ai découvert le plaisir de sublimer leurs
-            exploits en transmettant de la meilleure des manières la vitesse
-            impressionnante à laquelle je les ai vus passer durant toute mon
-            enfance.{" "}
+          <p className={styles.accroche}>
+            Le sport, c'est avant tout des histoires humaines. Des instants de grâce, de dépassement, de victoire et parfois de déception. C'est ce qui m'a toujours fasciné et ce que j'aime capturer à travers mon objectif.
+          </p>
+
+          <div className={styles.pointsForts}>
+            <div className={styles.point}>
+              <i className="fas fa-running"></i>
+              <p>Passionné par l'énergie brute et les émotions intenses du sport, je me suis spécialisé dans la photographie sportive depuis 2018.</p>
+            </div>
+            <div className={styles.point}>
+              <i className="fas fa-trophy"></i>
+              <p>Des petits tournois locaux aux grandes compétitions, chaque événement est une nouvelle aventure à immortaliser.</p>
+            </div>
+            <div className={styles.point}>
+              <i className="fas fa-camera"></i>
+              <p>Mon approche ? Être au bon endroit, au bon moment, pour saisir l'authenticité de chaque instant.</p>
+            </div>
+          </div>
+
+          <p className={styles.conclusion}>
+            Que ce soit pour une compétition, un tournoi ou une séance personnalisée, je m'efforce toujours de capturer l'essence même du sport et des sportifs que je photographie.
           </p>
         </div>
         <div className={styles.imageContainer}>
@@ -36,6 +39,10 @@ const About = () => {
             height={500}
             className={styles.photo}
           />
+          <div className={styles.location}>
+            <i className="fas fa-map-marker-alt"></i>
+            <span>Basé à Alès (30)</span>
+          </div>
         </div>
       </div>
     </div>
