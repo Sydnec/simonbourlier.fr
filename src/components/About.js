@@ -9,13 +9,13 @@ const About = () => {
       <div className={styles.content}>
         <div className={styles.textContainer}>
           <p className={styles.accroche}>
-            Le sport, c'est avant tout des histoires humaines. Des instants de grâce, de dépassement, de victoire et parfois de déception. C'est ce qui m'a toujours fasciné et ce que j'aime capturer à travers mon objectif.
+            Le sport, c&apos;est avant tout des histoires humaines. Des instants de grâce, de dépassement, de victoire et parfois de déception. C&apos;est ce qui m&apos;a toujours fasciné et ce que j&apos;aime capturer à travers mon objectif.
           </p>
 
           <div className={styles.pointsForts}>
             <div className={styles.point}>
               <i className="fas fa-running"></i>
-              <p>Passionné par l'énergie brute et les émotions intenses du sport, je me suis spécialisé dans la photographie sportive depuis 2018.</p>
+              <p>Passionné par l&apos;énergie brute et les émotions intenses du sport, je me suis spécialisé dans la photographie sportive depuis 2018.</p>
             </div>
             <div className={styles.point}>
               <i className="fas fa-trophy"></i>
@@ -23,12 +23,12 @@ const About = () => {
             </div>
             <div className={styles.point}>
               <i className="fas fa-camera"></i>
-              <p>Mon approche ? Être au bon endroit, au bon moment, pour saisir l'authenticité de chaque instant.</p>
+              <p>Mon approche ? Être au bon endroit, au bon moment, pour saisir l&apos;authenticité de chaque instant.</p>
             </div>
           </div>
 
           <p className={styles.conclusion}>
-            Que ce soit pour une compétition, un tournoi ou une séance personnalisée, je m'efforce toujours de capturer l'essence même du sport et des sportifs que je photographie.
+            Que ce soit pour une compétition, un tournoi ou une séance personnalisée, je m&apos;efforce toujours de capturer l&apos;essence même du sport et des sportifs que je photographie.
           </p>
         </div>
         <div className={styles.imageContainer}>
