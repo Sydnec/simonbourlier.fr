@@ -15,24 +15,38 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Simon Bourlier | Photographe sportif</title>
+                <title>Simon Bourlier | Photographe Sportif à Alès (30) | Reportage Événementiel</title>
                 <meta
                     name="description"
-                    content="Bienvenue sur mon site vitrine de photographie"
+                    content="Photographe sportif professionnel basé à Alès (30), je capture l'émotion et l'intensité des événements sportifs. Spécialisé dans le reportage photo, je mets en valeur les athlètes et les compétitions dans le Gard et en Occitanie."
                 />
-                <meta
-                    property="og:title"
-                    content="Simon Bourlier - Photographe"
-                />
+                <meta name="keywords" content="photographe sportif Alès, reportage photo sportif Gard, photographe événementiel 30, photographie sportive Occitanie, Simon Bourlier photographe, couverture événement sportif Alès, photographe compétition sportive" />
+                <meta name="author" content="Simon Bourlier" />
+                <meta name="geo.region" content="FR-30" />
+                <meta name="geo.placename" content="Alès" />
+                <meta name="robots" content="index, follow" />
+                
+                <meta property="og:title" content="Simon Bourlier - Photographe Sportif à Alès (30)" />
+                <meta property="og:type" content="website" />
+                <meta property="og:locale" content="fr_FR" />
+                <meta property="og:site_name" content="Simon Bourlier Photographie" />
                 <meta
                     property="og:description"
-                    content="Je m'appelle Simon Bourlier et je me suis pris de passion pour la photographie en 2018. À ce moment-là, j'étais alors au lycée et j'ai eu l'occasion d'immortaliser le tournoi de volleyball annuel. Ce premier pas dans la photographie sportive a été un déclic, j'ai tout de suite pris énormément de plaisir à immortaliser ces infimes instants de joie, de rage, de concentration extrême, d'esprit d'équipe et tout ce qui anime un sportif. Par la suite, ayant grandi à côté du Mans et du mythique circuit des 24 heures, il était impensable de ne pas photographier ces femmes et ces hommes, donnant tout pour leur sport et repoussant les limites. Ainsi, j'ai découvert le plaisir de sublimer leurs exploits en transmettant de la meilleure des manières la vitesse impressionnante à laquelle je les ai vus passer durant toute mon enfance."
+                    content="Photographe sportif professionnel à Alès, spécialisé dans le reportage événementiel et la photographie de compétition dans le Gard et en Occitanie."
                 />
                 <meta
                     property="og:image"
                     content="https://simonbourlier.fr/public/images/background-min.jpg"
                 />
                 <meta property="og:url" content="https://simonbourlier.fr" />
+                
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Simon Bourlier - Photographe Sportif à Alès (30)" />
+                <meta name="twitter:description" content="Photographe sportif professionnel à Alès, spécialisé dans le reportage événementiel et la photographie de compétition." />
+                <meta name="twitter:image" content="https://simonbourlier.fr/public/images/background-min.jpg" />
+                
+                <link rel="canonical" href="https://simonbourlier.fr" />
+                <link rel="alternate" hrefLang="fr" href="https://simonbourlier.fr" />
             </Head>
             <Navbar />
             <main>
