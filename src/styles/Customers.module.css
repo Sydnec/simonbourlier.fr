@@ -1,31 +1,36 @@
-/* src/styles/About.module.css */
+/* src/styles/Customers.module.css */
 .customersSection {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--dark-color);
-    padding: calc(var(--section-padding-top)/2);
-  }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-color);
+  padding: calc(var(--section-padding-top)/2);
+}
 
-  .customersSection h2 {
-    color: var(--light-color);
-    margin: 0;
-  }
-  
-  .logoContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3vw;
-    margin-top: 8vh;
-  }
-  
+.customersSection h2 {
+  color: var(--light-color);
+  margin: 0;
+}
+
+.logoContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3vw;
+  margin-top: 8vh;
+}
+
+.logo {
+  width: 150px;
+  height: 100px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
   .logo {
-    width: calc(var(--gallery-image-width)/2);
-    height: calc(var(--gallery-image-width)/2);
-    position: relative;
+    width: 120px;
+    height: 80px;
   }
-
-  
+}

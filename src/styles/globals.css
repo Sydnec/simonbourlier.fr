@@ -4,14 +4,14 @@
   --light-color: #f3f3f3;
   --light-selection-color: #f2dcc2;
   --max-width: 1000px;
-  --border-radius: 10px;
+  --border-radius: 0;
   --section-padding-top: 100px;
   --section-padding-bottom: 250px;
-  --gallery-image-width: 250px;
+  --gallery-image-height: 200px;
   --pricing-card-padding: 50px;
   --navbar-option-width: 100px;
   --navbar-option-font-size: 14px;
-  --gallery-image-gap: 15px;
+  --gallery-image-gap: 5px;
 }
 
 * {
@@ -51,7 +51,7 @@ h3 {
 @media (max-width: 800px) {
   :root {
     --max-width: 600px;
-    --gallery-image-width: 180px;
+    --gallery-image-height: 180px;
     --pricing-card-padding: 25px;
     --navbar-option-width: 100px;
     --navbar-option-font-size: 12px;
@@ -62,11 +62,11 @@ h3 {
 @media (max-width: 630px) {
   :root {
     --max-width: 400px;
-    --gallery-image-width: 150px;
+    --gallery-image-height: 150px;
     --pricing-card-padding: 10px;
     --navbar-option-width: 50px;
     --navbar-option-font-size: 10px;
-    --gallery-image-gap: 5px;
+    --gallery-image-gap: 1px;
   }
 
   * {

@@ -11,22 +11,30 @@
 .gallery {
   width: 100%;
   max-width: var(--max-width);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--gallery-image-width), 1fr));
+  display: flex;
+  flex-direction: column;
   gap: var(--gallery-image-gap);
-  justify-content: center;
-  padding: 3vw;
+  padding: 0 2vw;
 }
 
-.gallerySection h2 {
-  color: var(--light-color);
+.galleryRow {
+  display: flex;
+  gap: var(--gallery-image-gap);
+  height: var(--gallery-image-height);
+  margin: 0;
+  padding: 0;
 }
 
 .photoContainer {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border-radius: var(--border-radius);
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .photo {
@@ -34,8 +42,15 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .photoContainer:hover .photo {
   transform: scale(1.1);
+}
+
+.gallerySection h2 {
+  color: var(--light-color);
 }

@@ -7,8 +7,19 @@ const Customers = () => {
 
     useEffect(() => {
         fetch('/api/customers')
-            .then(res => res.json())
-            .then(data => setLogos(data));
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Erreur réseau lors de la récupération des logos');
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log('Logos chargés:', data);
+                setLogos(data);
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement des logos:', error);
+            });
     }, []);
 
     return (
