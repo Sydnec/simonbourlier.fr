@@ -53,6 +53,7 @@
 }
 
 .note {
+    max-width: var(--max-width);
     font-style: italic;
     color: #666;
     margin-top: 2vh;

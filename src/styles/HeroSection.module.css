@@ -43,7 +43,7 @@
 
 .cta {
   position: absolute;
-  top: calc(100vh - 90px);
+  top: calc(99vh - 90px);
   left: 50%;
   transform: translateX(-50%);
   cursor: pointer;
@@ -101,4 +101,13 @@
   100% {
     transform: translateY(5px) rotate(-45deg);
   }
+}
+
+@media (max-width: 500px) {
+    .background{
+      height: 90vh;
+    }
+    .cta {
+      top: calc(90vh - 60px);
+    }
 }

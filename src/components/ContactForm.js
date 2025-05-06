@@ -64,10 +64,10 @@ const ContactForm = () => {
           <i className={`fa ${icon} fa-lg ${styles.replace}`}></i>
           <i className={`fa fa-paper-plane fa-lg ${styles.plane} ${fly ? styles.fly : ''} ${visible ? styles.visible : styles.hidden}`}></i>
         </button>
-      </form>
-      <p className={styles.contactInfo}>
+        <p className={styles.contactInfo}>
         Vous pouvez également me contacter directement à <a href="mailto:contact@simonbourlier.fr">contact@simonbourlier.fr</a>
       </p>
+      </form>
     </div>
   );
 };

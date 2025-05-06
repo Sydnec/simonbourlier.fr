@@ -54,3 +54,22 @@
 .gallerySection h2 {
   color: var(--light-color);
 }
+
+/* Styles pour les appareils mobiles */
+@media (max-width: 500px) {
+  .galleryRow {
+    flex-direction: column;
+    height: auto;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .photoContainer {
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  .photo {
+    object-fit: cover;
+  }
+}

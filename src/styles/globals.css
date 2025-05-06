@@ -46,10 +46,9 @@ h3 {
   padding: var(--section-padding-top) 0px var(--section-padding-bottom) 0px;
 }
 
-
 @media (max-width: 800px) {
   :root {
-    --max-width: 600px;
+    --max-width: 90vw;
     --gallery-image-height: 180px;
     --pricing-card-padding: 25px;
     --navbar-option-width: 100px;
@@ -58,13 +57,13 @@ h3 {
   }
 }
 
-@media (max-width: 630px) {
+@media (max-width: 500px) {
   :root {
-    --max-width: 400px;
+    --max-width: 95vw;
     --gallery-image-height: 150px;
     --pricing-card-padding: 10px;
     --navbar-option-width: 50px;
-    --navbar-option-font-size: 10px;
+    --navbar-option-font-size: 9px;
     --gallery-image-gap: 1px;
   }
 

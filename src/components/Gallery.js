@@ -8,6 +8,7 @@ const Gallery = () => {
   const [photos, setPhotos] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -22,10 +23,12 @@ const Gallery = () => {
 
     fetchPhotos();
     
+    // Mettre à jour la largeur du conteneur
     const updateWidth = () => {
       const gallery = document.getElementById('gallery');
       if (gallery) {
         setContainerWidth(gallery.offsetWidth);
+        setIsMobile(window.innerWidth <= 500);
       }
     };
     
@@ -35,10 +38,39 @@ const Gallery = () => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  // Organiser les photos en rangées avec un ratio respecté
+  // Organiser les photos en rangées
   const photoRows = useMemo(() => {
-    if (!photos.length || containerWidth === 0) return [];
+    if (!photos.length) return [];
     
+    // Sur mobile, chaque photo est dans sa propre rangée avec ratio adapté selon l'orientation
+    if (isMobile) {
+      return photos.map((photo, index) => {
+        const largeSize = photo.sizes.find(size => size.label === 'Large');
+        if (!largeSize) return [];
+        
+        // Déterminer l'orientation réelle de l'image
+        const width = parseInt(largeSize.width);
+        const height = parseInt(largeSize.height);
+        const isLandscape = width > height;
+        
+        // Calculer les dimensions en fonction de l'orientation
+        // Pour les images verticales, on part de la largeur pour garantir le ratio 2/3
+        if (isLandscape) {
+          // Pour les images horizontales, ratio 3/2
+          const imgHeight = 200;
+          const imgWidth = imgHeight * 3/2;
+          return [{ ...photo, index, width: imgWidth, height: imgHeight, isLandscape }];
+        } else {
+          // Pour les images verticales, ratio 2/3
+          // On fixe la largeur et on calcule la hauteur pour avoir un ratio 2/3
+          const imgWidth = 300; // Largeur fixe
+          const imgHeight = imgWidth * 3/2; // Hauteur = largeur * 3/2 pour obtenir un ratio 2/3 (h/w)
+          return [{ ...photo, index, width: imgWidth, height: imgHeight, isLandscape }];
+        }
+      });
+    }
+    
+    // Sur PC, organisation normale en rangées
     const rows = [];
     let currentRow = [];
     const targetRowHeight = parseFloat(getComputedStyle(document.documentElement)
@@ -60,29 +92,15 @@ const Gallery = () => {
       const imgHeight = targetRowHeight;
       const imgWidth = imgHeight * aspectRatio;
       
-      // Calculer la largeur totale avec l'image actuelle
-      const totalWidth = currentRowWidth + (currentRow.length > 0 ? gap : 0) + imgWidth;
-      
-      if (currentRow.length === 0 || totalWidth <= availableWidth) {
-        currentRow.push({ 
-          ...photo, 
-          index, 
-          width: imgWidth, 
-          height: imgHeight,
-          aspectRatio 
-        });
-        currentRowWidth = totalWidth;
+      // Si c'est la première image de la rangée ou s'il reste de la place
+      if (currentRow.length === 0 || 
+          (currentRowWidth + imgWidth + (currentRow.length * gap) < containerWidth)) {
+        currentRow.push({ ...photo, index, width: imgWidth, height: imgHeight });
+        currentRowWidth += imgWidth;
       } else {
-        // Ajouter la rangée complète
+        // Ajouter la rangée complète et commencer une nouvelle rangée
         rows.push([...currentRow]);
-        // Commencer une nouvelle rangée avec l'image actuelle
-        currentRow = [{ 
-          ...photo, 
-          index, 
-          width: imgWidth, 
-          height: imgHeight,
-          aspectRatio 
-        }];
+        currentRow = [{ ...photo, index, width: imgWidth, height: imgHeight }];
         currentRowWidth = imgWidth;
       }
     });
@@ -121,16 +139,24 @@ const Gallery = () => {
                   className={styles.photoContainer}
                   onClick={() => openModal(photo.index)}
                   style={{
-                    aspectRatio: photo.aspectRatio,
-                    flex: '1 1 auto'
+                    flex: `${photo.width} ${photo.width}px`,
+                    ...(isMobile && photo.isLandscape !== undefined && {
+                      width: '100%', // Même largeur pour toutes les photos
+                      aspectRatio: photo.isLandscape ? 3/2 : 2/3
+                    })
                   }}
                 >
                   <Image
                     src={largeSize.source}
                     alt={photo.title}
-                    fill
+                    width={photo.width}
+                    height={photo.height}
                     className={styles.photo}
-                    sizes={`(max-width: 768px) 100vw, ${100 / row.length}%`}
+                    style={{ 
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
                   />
                 </div>
               );

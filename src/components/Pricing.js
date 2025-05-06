@@ -21,8 +21,8 @@ const Pricing = () => {
                         <li><FaRegCalendarAlt size={16} /> Livrées sous 72h</li>
                         <li><FaDesktop size={16} /> Au format numérique</li>
                         <li><FaCar size={16} /> 0,50€/km au-delà de 30 km</li>
+                        <p className={styles.price}>À partir de 130€</p>
                     </ul>
-                    <p className={styles.price}>À partir de 130€</p>
                 </div>
                 <div className={styles.pricingCard}>
                     <h3>Formule &quot;Évènement&quot;</h3>
@@ -32,8 +32,8 @@ const Pricing = () => {
                         <li><FaRegCalendarAlt size={16} /> Livrées sous 72h</li>
                         <li><FaDesktop size={16} /> Au format numérique</li>
                         <li><FaCar size={16} /> 0,50€/km au-delà de 30 km</li>
+                        <p className={styles.price}>À partir de 250€</p>
                     </ul>
-                    <p className={styles.price}>À partir de 250€</p>
                 </div>
             </div>
             <p className={styles.note}>
