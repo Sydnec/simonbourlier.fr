@@ -8,7 +8,7 @@ const About = () => {
       <h2>A propos</h2>
       <div className={styles.content}>
         <div className={styles.textContainer}>
-          <p className={styles.accroche}>
+          <p className={styles.description}>
             Le sport, c&apos;est avant tout des histoires humaines. Des instants de grâce, de dépassement, de victoire et parfois de déception. C&apos;est ce qui m&apos;a toujours fasciné et ce que j&apos;aime capturer à travers mon objectif.
           </p>
 
@@ -26,10 +26,6 @@ const About = () => {
               <p>Mon approche ? Être au bon endroit, au bon moment, pour saisir l&apos;authenticité de chaque instant.</p>
             </div>
           </div>
-
-          <p className={styles.conclusion}>
-            Que ce soit pour une compétition, un tournoi ou une séance personnalisée, je m&apos;efforce toujours de capturer l&apos;essence même du sport et des sportifs que je photographie.
-          </p>
         </div>
         <div className={styles.imageContainer}>
           <Image

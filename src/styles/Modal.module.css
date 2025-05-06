@@ -15,9 +15,14 @@
 .modalContent {
     position: relative;
     padding: 0;
-    width: 90%;
-    height: 90%;
-    overflow: hidden;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
 }
 
 .closeButton {
@@ -43,9 +48,12 @@
 }
 
 .modalPhoto {
-    width: 100%;
-    height: 100%;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    margin: auto;
 }
 
 .navButton {
