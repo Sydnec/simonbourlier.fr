@@ -78,9 +78,6 @@ const Gallery = () => {
     const gap = parseFloat(getComputedStyle(document.documentElement)
       .getPropertyValue('--gallery-image-gap').replace('px', '')) || 2;
     
-    // Calculer la largeur disponible (en tenant compte du padding)
-    const availableWidth = containerWidth - (2 * 24); // 24px de padding de chaque côté
-    
     let currentRowWidth = 0;
     
     photos.forEach((photo, index) => {
