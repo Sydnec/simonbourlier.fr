@@ -41,7 +41,7 @@ const About = () => {
           />
           <div className={styles.location}>
             <i className="fas fa-map-marker-alt"></i>
-            <span>Basé à Alès (30)</span>
+            <p>Basé à Alès (30)</p>
           </div>
         </div>
       </div>
