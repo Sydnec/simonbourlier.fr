@@ -36,14 +36,14 @@ export default function Home() {
                 />
                 <meta
                     property="og:image"
-                    content="https://simonbourlier.fr/images/background-min.jpg"
+                    content="https://simonbourlier.fr/images/background.jpg"
                 />
                 <meta property="og:url" content="https://simonbourlier.fr" />
                 
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Simon Bourlier - Photographe Sportif à Alès (30)" />
                 <meta name="twitter:description" content="Photographe sportif professionnel à Alès, spécialisé dans la photographie de sports et le reportage événementiel." />
-                <meta name="twitter:image" content="https://simonbourlier.fr/images/background-min.jpg" />
+                <meta name="twitter:image" content="https://simonbourlier.fr/images/background.jpg" />
                 
                 <link rel="canonical" href="https://simonbourlier.fr" />
                 <link rel="alternate" hrefLang="fr" href="https://simonbourlier.fr" />

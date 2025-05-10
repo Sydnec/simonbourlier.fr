@@ -60,7 +60,6 @@
   .galleryRow {
     flex-direction: column;
     height: auto;
-    gap: 1.5rem;
     align-items: center;
   }
 

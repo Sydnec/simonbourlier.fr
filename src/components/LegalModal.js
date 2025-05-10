@@ -1,5 +1,4 @@
 // src/components/LegalModal.js
-import { useState } from "react";
 import styles from "../styles/LegalModal.module.css";
 
 export default function LegalModal({ show, onClose, children }) {

@@ -23,11 +23,10 @@ const Gallery = () => {
 
     fetchPhotos();
     
-    // Mettre à jour la largeur du conteneur
     const updateWidth = () => {
-      const gallery = document.getElementById('gallery');
-      if (gallery) {
-        setContainerWidth(gallery.offsetWidth);
+      const galleryElement = document.querySelector(`.${styles.gallery}`);
+      if (galleryElement) {
+        setContainerWidth(galleryElement.offsetWidth);
         setIsMobile(window.innerWidth <= 500);
       }
     };
@@ -38,39 +37,17 @@ const Gallery = () => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  // Organiser les photos en rangées
   const photoRows = useMemo(() => {
     if (!photos.length) return [];
     
-    // Sur mobile, chaque photo est dans sa propre rangée avec ratio adapté selon l'orientation
     if (isMobile) {
       return photos.map((photo, index) => {
         const largeSize = photo.sizes.find(size => size.label === 'Large');
         if (!largeSize) return [];
-        
-        // Déterminer l'orientation réelle de l'image
-        const width = parseInt(largeSize.width);
-        const height = parseInt(largeSize.height);
-        const isLandscape = width > height;
-        
-        // Calculer les dimensions en fonction de l'orientation
-        // Pour les images verticales, on part de la largeur pour garantir le ratio 2/3
-        if (isLandscape) {
-          // Pour les images horizontales, ratio 3/2
-          const imgHeight = 200;
-          const imgWidth = imgHeight * 3/2;
-          return [{ ...photo, index, width: imgWidth, height: imgHeight, isLandscape }];
-        } else {
-          // Pour les images verticales, ratio 2/3
-          // On fixe la largeur et on calcule la hauteur pour avoir un ratio 2/3
-          const imgWidth = 300; // Largeur fixe
-          const imgHeight = imgWidth * 3/2; // Hauteur = largeur * 3/2 pour obtenir un ratio 2/3 (h/w)
-          return [{ ...photo, index, width: imgWidth, height: imgHeight, isLandscape }];
-        }
+        return [{ ...photo, index, width: 300, height: 200}];
       });
     }
     
-    // Sur PC, organisation normale en rangées
     const rows = [];
     let currentRow = [];
     const targetRowHeight = parseFloat(getComputedStyle(document.documentElement)
@@ -78,34 +55,36 @@ const Gallery = () => {
     const gap = parseFloat(getComputedStyle(document.documentElement)
       .getPropertyValue('--gallery-image-gap').replace('px', '')) || 2;
     
-    // Calculer la largeur disponible (en tenant compte du padding)
-    const availableWidth = containerWidth - (2 * 24); // 24px de padding de chaque côté
+    const availableWidth = containerWidth - (gap * 2);
     
     let currentRowWidth = 0;
     
-    photos.forEach((photo, index) => {
+    const photosWithDimensions = photos.map((photo, index) => {
       const largeSize = photo.sizes.find(size => size.label === 'Large');
-      if (!largeSize) return;
+      if (!largeSize) return null;
       
-      // Calculer les dimensions en maintenant le ratio
-      const aspectRatio = largeSize.width / largeSize.height;
+      const originalWidth = parseInt(largeSize.width);
+      const originalHeight = parseInt(largeSize.height);
+      const aspectRatio = originalWidth / originalHeight;
+            
       const imgHeight = targetRowHeight;
       const imgWidth = imgHeight * aspectRatio;
       
-      // Si c'est la première image de la rangée ou s'il reste de la place
+      return { ...photo, index, width: imgWidth, height: imgHeight};
+    }).filter(Boolean);
+    
+    photosWithDimensions.forEach((photo) => {
       if (currentRow.length === 0 || 
-          (currentRowWidth + imgWidth + (currentRow.length * gap) < containerWidth)) {
-        currentRow.push({ ...photo, index, width: imgWidth, height: imgHeight });
-        currentRowWidth += imgWidth;
+          (currentRowWidth + photo.width + (currentRow.length * gap) < availableWidth)) {
+        currentRow.push(photo);
+        currentRowWidth += photo.width;
       } else {
-        // Ajouter la rangée complète et commencer une nouvelle rangée
         rows.push([...currentRow]);
-        currentRow = [{ ...photo, index, width: imgWidth, height: imgHeight }];
-        currentRowWidth = imgWidth;
+        currentRow = [photo];
+        currentRowWidth = photo.width;
       }
     });
     
-    // Ajouter la dernière rangée si elle n'est pas vide
     if (currentRow.length > 0) {
       rows.push(currentRow);
     }
@@ -140,9 +119,8 @@ const Gallery = () => {
                   onClick={() => openModal(photo.index)}
                   style={{
                     flex: `${photo.width} ${photo.width}px`,
-                    ...(isMobile && photo.isLandscape !== undefined && {
-                      width: '100%', // Même largeur pour toutes les photos
-                      aspectRatio: photo.isLandscape ? 3/2 : 2/3
+                    ...(isMobile && {
+                      width: '100%',
                     })
                   }}
                 >
