@@ -15,7 +15,7 @@ const About = () => {
           <div className={styles.pointsForts}>
             <div className={styles.point}>
               <i className="fas fa-running"></i>
-              <p>Passionné par l&apos;énergie brute et les émotions intenses du sport, je me suis spécialisé dans la photographie sportive depuis 2018.</p>
+              <p>Passionné par l&apos;énergie et les émotions intenses du sport, je me suis spécialisé dans la photographie sportive depuis 2018.</p>
             </div>
             <div className={styles.point}>
               <i className="fas fa-trophy"></i>
