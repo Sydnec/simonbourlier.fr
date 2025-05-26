@@ -14,7 +14,6 @@ const Customers = () => {
                 return res.json();
             })
             .then(data => {
-                console.log('Logos chargés:', data);
                 setLogos(data);
             })
             .catch(error => {

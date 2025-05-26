@@ -100,7 +100,7 @@ const Gallery = () => {
     setSelectedIndex(null);
   };
 
-  const selectedPhoto = selectedIndex !== null ? photos[selectedIndex]?.sizes.find(s => s.label === 'Large 2048')?.source : null;
+  const selectedPhoto = selectedIndex !== null ? photos[selectedIndex]?.sizes.find(s => s.label === 'Large')?.source : null;
 
   return (
     <div id="gallery" className={`section ${styles.gallerySection}`}>

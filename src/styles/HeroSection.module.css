@@ -9,7 +9,7 @@
   background-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.3) 40vh
+      rgba(0, 0, 0, 0.2) 40vh
     ),
     url("/images/background.jpg");
   background-size: cover;
