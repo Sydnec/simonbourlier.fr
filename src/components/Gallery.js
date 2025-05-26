@@ -85,7 +85,7 @@ const Gallery = () => {
       }
     });
     
-    if (currentRow.length > 0) {
+    if (currentRow.length > 1) {
       rows.push(currentRow);
     }
     
