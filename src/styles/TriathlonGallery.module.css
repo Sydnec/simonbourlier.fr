@@ -157,7 +157,6 @@
 
 .photoCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(242, 220, 194, 0.2);
 }
 
 .photoWrapper {
@@ -340,6 +339,8 @@
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 11;
+  padding: 0;
+  line-height: 1;
 }
 
 .navButton:hover {
@@ -351,6 +352,8 @@
   font-size: 48px;
   font-weight: bold;
   line-height: 1;
+  position: relative;
+  top: -3px;
 }
 
 .purchaseBanner {

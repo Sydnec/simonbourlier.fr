@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styles from "../styles/TriathlonGallery.module.css";
 import Image from "next/image";
 import { FaSearch, FaTimes, FaShoppingCart } from "react-icons/fa";
@@ -46,23 +46,6 @@ const TriathlonGallery = () => {
   }, []);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!selectedPhoto) return;
-
-      if (e.key === "ArrowLeft") {
-        goToPrevious();
-      } else if (e.key === "ArrowRight") {
-        goToNext();
-      } else if (e.key === "Escape") {
-        closeModal();
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedPhoto, selectedIndex, filteredPhotos]);
-
-  useEffect(() => {
     if (searchDossard.trim() === "") {
       setFilteredPhotos(photos);
     } else {
@@ -84,26 +67,43 @@ const TriathlonGallery = () => {
     setSelectedIndex(index);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setSelectedPhoto(null);
     setSelectedIndex(null);
-  };
+  }, []);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     if (selectedIndex !== null && selectedIndex < filteredPhotos.length - 1) {
       const nextIndex = selectedIndex + 1;
       setSelectedIndex(nextIndex);
       setSelectedPhoto(filteredPhotos[nextIndex]);
     }
-  };
+  }, [selectedIndex, filteredPhotos]);
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     if (selectedIndex !== null && selectedIndex > 0) {
       const prevIndex = selectedIndex - 1;
       setSelectedIndex(prevIndex);
       setSelectedPhoto(filteredPhotos[prevIndex]);
     }
-  };
+  }, [selectedIndex, filteredPhotos]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedPhoto) return;
+
+      if (e.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (e.key === "ArrowRight") {
+        goToNext();
+      } else if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedPhoto, goToNext, goToPrevious, closeModal]);
 
   const handlePurchase = async () => {
     const stripeCheckoutUrl = process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_URL;

@@ -1,5 +1,6 @@
 // src/components/Modal.js
 import { useEffect } from 'react';
+import Image from 'next/image';
 import styles from "../styles/Modal.module.css";
 
 const Modal = ({ isOpen, onClose, photo, onNext, onPrev }) => {
@@ -57,11 +58,14 @@ const Modal = ({ isOpen, onClose, photo, onNext, onPrev }) => {
       </button>
 
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <img 
+        <Image 
           src={photo} 
           alt="Photo en grand" 
           className={styles.modalPhoto} 
-          tabIndex="0"
+          width={1200}
+          height={800}
+          style={{ objectFit: 'contain' }}
+          unoptimized
         />
       </div>
     </div>

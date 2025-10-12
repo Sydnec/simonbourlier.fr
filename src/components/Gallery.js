@@ -90,7 +90,7 @@ const Gallery = () => {
     }
     
     return rows;
-  }, [photos, containerWidth]);
+  }, [photos, containerWidth, isMobile]);
 
   const openModal = (index) => {
     setSelectedIndex(index);

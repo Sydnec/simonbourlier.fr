@@ -100,7 +100,7 @@ const extractDossards = (tagsString) => {
   return [...new Set(dossards)];
 };
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   try {
     if (!albumId) {
       return res.status(500).json({
@@ -121,4 +121,4 @@ export default async (req, res) => {
       details: error.message,
     });
   }
-};
+}

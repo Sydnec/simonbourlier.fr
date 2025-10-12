@@ -24,16 +24,16 @@ export default function Photos() {
           <div className={styles.textContent}>
             <h2>Des souvenirs accessibles à tous</h2>
             <p>
-              Vos exploits sportifs méritent d'être immortalisés. Je propose mes
+              Vos exploits sportifs méritent d&apos;être immortalisés. Je propose mes
               photos à <strong>prix libre</strong> pour que chacun puisse garder
               un souvenir, peu importe ses moyens.
             </p>
 
             <h3>Ma démarche</h3>
             <p>
-              Habituellement, je vends mes photos <strong>3€ l'unité</strong> (à
+              Habituellement, je vends mes photos <strong>3€ l&apos;unité</strong> (à
               titre indicatif). Avec le système à prix libre, vous choisissez le
-              montant qui vous semble juste. L'objectif étant que personne ne se
+              montant qui vous semble juste. L&apos;objectif étant que personne ne se
               prive de souvenirs par manque de moyens.
             </p>
             <p>
@@ -49,7 +49,7 @@ export default function Photos() {
               </li>
               <li>Choisissez votre contribution sur la page de paiement</li>
               <li>
-                Recevez l'accès pour télécharger toutes les photos en haute
+                Recevez l&apos;accès pour télécharger toutes les photos en haute
                 qualité
               </li>
             </ol>
