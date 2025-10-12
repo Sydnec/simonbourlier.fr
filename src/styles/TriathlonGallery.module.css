@@ -1,0 +1,609 @@
+.galleryContainer {
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  padding: 10px 20px 120px;
+}
+
+.filterToggle {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 100;
+  background: linear-gradient(
+    135deg,
+    rgba(242, 220, 194, 0.9) 0%,
+    rgba(243, 243, 243, 0.8) 100%
+  );
+  color: var(--dark-color);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(242, 220, 194, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.filterButton {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dark-color);
+  white-space: nowrap;
+}
+
+.filterExpanded {
+  min-width: 300px;
+}
+
+.filterInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+.filterIcon {
+  font-size: 16px;
+  color: var(--dark-color);
+  flex-shrink: 0;
+}
+
+.filterInput {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(242, 220, 194, 0.4);
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--dark-color);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.filterInput:focus {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--light-selection-color);
+}
+
+.filterInput::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.filterCloseButton {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.filterCloseButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+
+.filterToggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(242, 220, 194, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(242, 220, 194, 1) 0%,
+    rgba(243, 243, 243, 0.9) 100%
+  );
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.loader {
+  border: 4px solid var(--light-color);
+  border-top: 4px solid var(--light-selection-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingContainer p {
+  color: var(--light-color);
+  font-size: 16px;
+}
+
+.photoGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.photoCard {
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(243, 243, 243, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(242, 220, 194, 0.2);
+}
+
+.photoWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.photoCard:hover .photo {
+  transform: scale(1.1);
+}
+
+.photoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 12, 12, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photoCard:hover .photoOverlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  color: var(--light-color);
+  font-size: 40px;
+}
+
+.dossardsTag {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.dossardNumber {
+  background-color: var(--light-selection-color);
+  color: var(--dark-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--light-color);
+}
+
+.noResults p {
+  font-size: 18px;
+  color: var(--light-color);
+  opacity: 0.7;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(12, 12, 12, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgba(243, 243, 243, 0.05);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(243, 243, 243, 0.1);
+  box-sizing: border-box;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(243, 243, 243, 0.1);
+  border: none;
+  color: var(--light-color);
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background-color: var(--light-selection-color);
+  color: var(--dark-color);
+  transform: rotate(90deg);
+}
+
+.modalImageWrapper {
+  width: 100%;
+  max-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: rgba(12, 12, 12, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+.modalInfo {
+  color: var(--light-color);
+  padding: 20px;
+}
+
+.modalInfo h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--light-color);
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(242, 220, 194, 0.9);
+  border: none;
+  color: var(--dark-color);
+  font-size: 48px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 11;
+}
+
+.navButton:hover {
+  background-color: var(--light-selection-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navArrow {
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.purchaseBanner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 12, 0.95) 0%,
+    rgba(12, 12, 12, 0.98) 100%
+  );
+  backdrop-filter: blur(10px);
+  border-top: 2px solid rgba(242, 220, 194, 0.3);
+  padding: 15px 20px;
+  z-index: 1000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.bannerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bannerText {
+  color: var(--light-color);
+  font-size: 16px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.bannerButton {
+  background-color: var(--light-selection-color);
+  color: var(--dark-color);
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.bannerButton:hover:not(:disabled) {
+  background-color: var(--light-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(242, 220, 194, 0.4);
+}
+
+.bannerButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.description {
+  color: var(--light-color);
+  opacity: 0.8;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.modalDossards {
+  margin-bottom: 20px;
+  color: var(--light-color);
+}
+
+.modalDossards strong {
+  color: var(--light-color);
+}
+
+.dossardBadge {
+  background-color: var(--light-selection-color);
+  color: var(--dark-color);
+  padding: 5px 12px;
+  border-radius: 5px;
+  margin-left: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .photoGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .photoWrapper {
+    height: 180px;
+  }
+
+  .filterToggle {
+    top: 80px;
+    right: 15px;
+  }
+
+  .filterButton {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .filterExpanded {
+    min-width: 280px;
+  }
+
+  .navButton {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+  }
+
+  .navArrow {
+    font-size: 36px;
+  }
+
+  .bannerContent {
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .bannerText {
+    font-size: 14px;
+    flex: 1;
+  }
+
+  .bannerButton {
+    flex-shrink: 0;
+  }
+
+  .modalInfo h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .galleryContainer {
+    padding: 5px 10px 120px;
+  }
+
+  .photoGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .photoWrapper {
+    height: 250px;
+  }
+
+  .filterToggle {
+    top: 70px;
+    right: 10px;
+  }
+
+  .filterButton {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .filterButton svg {
+    font-size: 14px;
+  }
+
+  .filterExpanded {
+    min-width: 250px;
+  }
+
+  .filterInput {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .filterCloseButton {
+    width: 24px;
+    height: 24px;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+
+  .navArrow {
+    font-size: 28px;
+  }
+
+  .bannerContent {
+    padding: 0;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .bannerText {
+    font-size: 13px;
+    flex: 1;
+  }
+
+  .bannerButton {
+    font-size: 14px;
+    padding: 12px 20px;
+    flex-shrink: 0;
+  }
+
+  /* Modal mobile fix */
+  .modal {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .modalContent {
+    padding: 10px;
+    margin: 10px 0;
+    width: calc(100% - 20px);
+    max-height: calc(100vh - 20px);
+  }
+
+  .modalImageWrapper {
+    max-height: 50vh;
+  }
+
+  .modalInfo {
+    padding: 10px;
+  }
+
+  .modalInfo h3 {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .dossardBadge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .closeButton {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
