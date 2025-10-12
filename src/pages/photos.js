@@ -7,9 +7,7 @@ export default function Photos() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>
-          Photos Événementielles - Prix Libre | Simon Bourlier Photographie
-        </title>
+        <title>Photos Événementielles | Simon Bourlier</title>
         <meta
           name="description"
           content="Découvrez mes photos événementielles à prix libre. Une démarche basée sur la confiance et la reconnaissance du travail photographique."
@@ -24,33 +22,31 @@ export default function Photos() {
           <div className={styles.textContent}>
             <h2>Des souvenirs accessibles à tous</h2>
             <p>
-              Vos exploits sportifs méritent d&apos;être immortalisés. Je propose mes
-              photos à <strong>prix libre</strong> pour que chacun puisse garder
-              un souvenir, peu importe ses moyens.
+              Chaque exploit sportif mérite d&apos;être immortalisé. Les photos
+              sont proposées à <strong>prix libre</strong> pour que chacun
+              puisse garder un souvenir, quels que soient ses moyens.
             </p>
-
-            <h3>Ma démarche</h3>
+            <h3>La démarche</h3>
             <p>
-              Habituellement, je vends mes photos <strong>3€ l&apos;unité</strong> (à
-              titre indicatif). Avec le système à prix libre, vous choisissez le
-              montant qui vous semble juste. L&apos;objectif étant que personne ne se
-              prive de souvenirs par manque de moyens.
+              Avec le système de prix libre, chacun choisit le montant qui lui
+              semble juste. L&apos;objectif étant que personne ne se prive de
+              souvenirs pour des raisons financières. Prix indicatif habituel :{" "}
+              <strong>5€ la photo/30€ le pack</strong> contenant toutes les photos d&apos;un athlète.
             </p>
             <p>
-              <strong>Je compte sur votre fair-play</strong> pour me permettre
-              de continuer à offrir cette accessibilité à tous les participants.
+              Votre <strong>fair-play</strong> permet de maintenir cette 
+              accessibilité pour tous les participants.
             </p>
-
             <h3>Comment ça fonctionne ?</h3>
             <ol className={styles.steps}>
               <li>
-                Parcourez la galerie et retrouvez vos photos (filtre par
+                Parcourir la galerie pour visualiser ses photos (filtre par
                 dossard)
               </li>
-              <li>Choisissez votre contribution sur la page de paiement</li>
+              <li>Choisir sa contribution sur la page de paiement</li>
               <li>
-                Recevez l&apos;accès pour télécharger toutes les photos en haute
-                qualité
+                Recevoir l&apos;accès pour télécharger toutes les photos en
+                haute qualité
               </li>
             </ol>
 
@@ -74,7 +70,7 @@ export default function Photos() {
                 href="/triathlon-cevennes-2025"
                 className={styles.eventCard}
               >
-                <h4>Triathlon des Cévennes 2025</h4>
+                <h4>Duathlon des Cévennes 2025</h4>
                 <span className={styles.eventButton}>Voir la galerie →</span>
               </Link>
             </div>

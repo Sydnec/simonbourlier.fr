@@ -66,7 +66,8 @@
 
 .textContent strong {
   color: var(--light-selection-color);
-  font-weight: 600;
+  font-family: "Quando", serif;
+  font-size: 14px;
 }
 
 .steps {
@@ -158,6 +159,7 @@
   }
 
   .textContent p,
+  .textContent strong,
   .steps li {
     font-size: 13px;
   }
@@ -200,6 +202,7 @@
   }
 
   .textContent p,
+  .textContent strong,
   .steps li {
     font-size: 13px;
   }

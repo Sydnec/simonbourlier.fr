@@ -48,20 +48,17 @@ export default function TriathlonCevennes2025() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>
-          Triathlon des Cévennes 2025 - Galerie Photos | Simon Bourlier
-          Photographie
-        </title>
+        <title>Duathlon des Cévennes 2025 | Simon Bourlier</title>
         <meta
           name="description"
-          content="Retrouvez toutes les photos du Triathlon des Cévennes 2025. Recherchez vos photos par numéro de dossard."
+          content="Retrouvez toutes les photos du Duathlon des Cévennes 2025. Recherchez vos photos par numéro de dossard."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Triathlon des Cévennes 2025</h1>
+          <h1 className={styles.title}>Duathlon des Cévennes 2025</h1>
         </div>
         <TriathlonGallery />
       </main>
