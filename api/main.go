@@ -33,6 +33,46 @@ const eventsConfigFile = "./events-config.json"
 
 var eventsConfig map[string]EventConfig
 
+// enableCORS adds CORS headers to the response
+func enableCORS(w http.ResponseWriter, r *http.Request) {
+	origin := r.Header.Get("Origin")
+	
+	// Liste des domaines autorisés
+	allowedOrigins := []string{
+		"https://simonbourlier.fr",
+		"https://www.simonbourlier.fr",
+		"https://photos.simonbourlier.fr",
+		"http://localhost:3000", // Pour le développement local
+	}
+	
+	// Vérifier si l'origine est dans la liste des domaines autorisés
+	isAllowed := false
+	for _, allowedOrigin := range allowedOrigins {
+		if origin == allowedOrigin {
+			isAllowed = true
+			break
+		}
+	}
+	
+	// Accepter aussi les domaines Vercel (.vercel.app) qui se terminent par simonbourlier
+	if !isAllowed && strings.HasSuffix(origin, ".vercel.app") && strings.Contains(origin, "simonbourlier") {
+		isAllowed = true
+	}
+	
+	if isAllowed {
+		w.Header().Set("Access-Control-Allow-Origin", origin)
+	}
+	
+	w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	
+	// Handle preflight requests
+	if r.Method == "OPTIONS" {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+}
+
 // loadEventsConfig loads the events configuration from JSON file
 func loadEventsConfig() error {
 	data, err := os.ReadFile(eventsConfigFile)
@@ -62,15 +102,36 @@ func isProduction() bool {
 // corsMiddleware handles CORS headers
 func corsMiddleware(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if isProduction() {
-			// En production, n'autoriser que le domaine spécifique
-			origin := r.Header.Get("Origin")
-			if origin == "https://simonbourlier.fr" || origin == "https://www.simonbourlier.fr" {
-				w.Header().Set("Access-Control-Allow-Origin", origin)
+		origin := r.Header.Get("Origin")
+		
+		// Liste des domaines autorisés
+		allowedOrigins := []string{
+			"https://simonbourlier.fr",
+			"https://www.simonbourlier.fr",
+			"https://photos.simonbourlier.fr",
+		}
+		
+		// En développement, ajouter localhost
+		if !isProduction() {
+			allowedOrigins = append(allowedOrigins, "http://localhost:3000")
+		}
+		
+		// Vérifier si l'origine est dans la liste des domaines autorisés
+		isAllowed := false
+		for _, allowedOrigin := range allowedOrigins {
+			if origin == allowedOrigin {
+				isAllowed = true
+				break
 			}
-		} else {
-			// En développement, autoriser toutes les origines
-			w.Header().Set("Access-Control-Allow-Origin", "*")
+		}
+		
+		// Accepter aussi les domaines Vercel (.vercel.app) qui se terminent par simonbourlier
+		if !isAllowed && strings.HasSuffix(origin, ".vercel.app") && strings.Contains(origin, "simonbourlier") {
+			isAllowed = true
+		}
+		
+		if isAllowed {
+			w.Header().Set("Access-Control-Allow-Origin", origin)
 		}
 		
 		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
@@ -88,6 +149,11 @@ func corsMiddleware(next http.HandlerFunc) http.HandlerFunc {
 
 // getEvents returns all event directories
 func getEvents(w http.ResponseWriter, r *http.Request) {
+	enableCORS(w, r)
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	var events []Event
 
 	entries, err := os.ReadDir(eventsDir)
@@ -119,6 +185,11 @@ func getEvents(w http.ResponseWriter, r *http.Request) {
 
 // getEventPhotos returns all photos for a specific event
 func getEventPhotos(w http.ResponseWriter, r *http.Request) {
+	enableCORS(w, r)
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	// Extract event slug from URL path
 	path := strings.TrimPrefix(r.URL.Path, "/events/")
 	path = strings.TrimSuffix(path, "/photos")
@@ -240,6 +311,11 @@ func getPhotosFromDirectory(dirPath, eventSlug string) ([]Photo, error) {
 
 // serveEventImage serves an image file from the events directory
 func serveEventImage(w http.ResponseWriter, r *http.Request) {
+	enableCORS(w, r)
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	// Extract path after /events/
 	imagePath := strings.TrimPrefix(r.URL.Path, "/events/")
 	

@@ -17,12 +17,12 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '8080',
+        port: '3004',
         pathname: '/events/**',
       },
       {
         protocol: 'https',
-        hostname: 'photo-api.simonbourlier.fr',
+        hostname: 'photos-api.simonbourlier.fr',
         pathname: '/events/**',
       },
     ],

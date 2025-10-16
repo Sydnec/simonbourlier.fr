@@ -4,10 +4,11 @@ services:
   events-api:
     build: .
     ports:
-      - "8080:8080"
+      - "3004:8084"
     volumes:
       - ./events:/root/events
+      - ./events-config.json:/root/events-config.json
     environment:
-      - ENV=development
-      - PORT=8080
+      - ENV=production
+      - PORT=8084
     restart: unless-stopped
