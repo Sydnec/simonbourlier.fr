@@ -27,5 +27,14 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/triathlon-cevennes-2025',
+        destination: '/photos',
+        permanent: true,
+      },
+    ];
+  },
 };
 export default nextConfig;
