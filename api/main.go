@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/md5"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -9,6 +10,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 type Event struct {
@@ -30,8 +32,15 @@ type Photo struct {
 
 const eventsDir = "./events"
 const eventsConfigFile = "./events-config.json"
+const cacheDir = "./cache"
 
 var eventsConfig map[string]EventConfig
+
+type PhotoCache struct {
+	Photos    []Photo   `json:"photos"`
+	UpdatedAt time.Time `json:"updated_at"`
+	Hash      string    `json:"hash"` // Hash des fichiers pour détecter les changements
+}
 
 // enableCORS adds CORS headers to the response
 func enableCORS(w http.ResponseWriter, r *http.Request) {
@@ -208,11 +217,24 @@ func getEventPhotos(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	photos, err := getPhotosFromDirectory(eventPath, eventSlug)
+	// Try to load from cache first
+	photos, err := loadPhotosFromCache(eventSlug, eventPath)
 	if err != nil {
-		http.Error(w, "Error reading photos", http.StatusInternalServerError)
-		log.Printf("Error reading photos for event %s: %v", eventSlug, err)
-		return
+		// Cache miss or error, generate photos and save to cache
+		log.Printf("Cache miss for event %s, generating photos list...", eventSlug)
+		photos, err = getPhotosFromDirectory(eventPath, eventSlug)
+		if err != nil {
+			http.Error(w, "Error reading photos", http.StatusInternalServerError)
+			log.Printf("Error reading photos for event %s: %v", eventSlug, err)
+			return
+		}
+		
+		// Save to cache
+		if err := savePhotosToCache(eventSlug, eventPath, photos); err != nil {
+			log.Printf("Warning: Failed to save cache for event %s: %v", eventSlug, err)
+		}
+	} else {
+		log.Printf("Cache hit for event %s, %d photos loaded from cache", eventSlug, len(photos))
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -260,6 +282,94 @@ func extractNumbersFromEXIF(imagePath string) []string {
 	log.Printf("Photo %s - Numéros trouvés: %v", filepath.Base(imagePath), numbers)
 	
 	return numbers
+}
+
+// getCacheFilePath returns the path to the cache file for an event
+func getCacheFilePath(eventSlug string) string {
+	return filepath.Join(cacheDir, fmt.Sprintf("%s.json", eventSlug))
+}
+
+// getDirectoryHash calculates a hash of the directory contents (file names and modification times)
+func getDirectoryHash(dirPath string) (string, error) {
+	h := md5.New()
+	
+	err := filepath.Walk(dirPath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() {
+			// Include file name and modification time in hash
+			fmt.Fprintf(h, "%s:%d:", path, info.ModTime().Unix())
+		}
+		return nil
+	})
+	
+	if err != nil {
+		return "", err
+	}
+	
+	return fmt.Sprintf("%x", h.Sum(nil)), nil
+}
+
+// loadPhotosFromCache loads photos from cache if available and valid
+func loadPhotosFromCache(eventSlug, eventPath string) ([]Photo, error) {
+	cacheFile := getCacheFilePath(eventSlug)
+	
+	// Check if cache file exists
+	if _, err := os.Stat(cacheFile); os.IsNotExist(err) {
+		return nil, fmt.Errorf("cache file does not exist")
+	}
+	
+	// Read cache file
+	data, err := os.ReadFile(cacheFile)
+	if err != nil {
+		return nil, err
+	}
+	
+	var cache PhotoCache
+	if err := json.Unmarshal(data, &cache); err != nil {
+		return nil, err
+	}
+	
+	// Check if directory has changed by comparing hash
+	currentHash, err := getDirectoryHash(eventPath)
+	if err != nil {
+		return nil, err
+	}
+	
+	if cache.Hash != currentHash {
+		return nil, fmt.Errorf("cache is outdated (directory changed)")
+	}
+	
+	return cache.Photos, nil
+}
+
+// savePhotosToCache saves photos to cache
+func savePhotosToCache(eventSlug, eventPath string, photos []Photo) error {
+	// Create cache directory if it doesn't exist
+	if err := os.MkdirAll(cacheDir, 0755); err != nil {
+		return err
+	}
+	
+	// Calculate directory hash
+	hash, err := getDirectoryHash(eventPath)
+	if err != nil {
+		return err
+	}
+	
+	cache := PhotoCache{
+		Photos:    photos,
+		UpdatedAt: time.Now(),
+		Hash:      hash,
+	}
+	
+	data, err := json.MarshalIndent(cache, "", "  ")
+	if err != nil {
+		return err
+	}
+	
+	cacheFile := getCacheFilePath(eventSlug)
+	return os.WriteFile(cacheFile, data, 0644)
 }
 
 // getPhotosFromDirectory recursively gets all image files from a directory
