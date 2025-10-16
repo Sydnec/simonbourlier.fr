@@ -3,7 +3,33 @@ import Link from "next/link";
 import Footer from "../components/Footer";
 import styles from "../styles/PhotosIntro.module.css";
 
-export default function Photos() {
+export async function getServerSideProps() {
+  try {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+    const response = await fetch(`${apiUrl}/events`);
+    
+    if (!response.ok) {
+      throw new Error('Failed to fetch events');
+    }
+    
+    const events = await response.json();
+    
+    return {
+      props: {
+        events: events || [],
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching events:', error);
+    return {
+      props: {
+        events: [],
+      },
+    };
+  }
+}
+
+export default function Photos({ events }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -66,13 +92,20 @@ export default function Photos() {
 
             <h3>Événements disponibles</h3>
             <div className={styles.eventsList}>
-              <Link
-                href="/triathlon-cevennes-2025"
-                className={styles.eventCard}
-              >
-                <h4>Duathlon des Cévennes 2025</h4>
-                <span className={styles.eventButton}>Voir la galerie →</span>
-              </Link>
+              {events.length === 0 ? (
+                <p className={styles.noEvents}>Aucun événement disponible pour le moment.</p>
+              ) : (
+                events.map((event) => (
+                  <Link
+                    key={event.slug}
+                    href={`/${event.slug}`}
+                    className={styles.eventCard}
+                  >
+                    <h4>{event.name}</h4>
+                    <span className={styles.eventButton}>Voir la galerie →</span>
+                  </Link>
+                ))
+              )}
             </div>
           </div>
         </div>

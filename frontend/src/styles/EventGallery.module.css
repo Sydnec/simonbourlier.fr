@@ -193,14 +193,14 @@
   font-size: 40px;
 }
 
-.dossardsTag {
+.numbersTag {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
 
-.dossardNumber {
+.numberBadge {
   background-color: var(--light-selection-color);
   color: var(--dark-color);
   padding: 5px 10px;
@@ -412,16 +412,16 @@
   font-size: 14px;
 }
 
-.modalDossards {
+.modalNumbers {
   margin-bottom: 20px;
   color: var(--light-color);
 }
 
-.modalDossards strong {
+.modalNumbers strong {
   color: var(--light-color);
 }
 
-.dossardBadge {
+.numberBadge {
   background-color: var(--light-selection-color);
   color: var(--dark-color);
   padding: 5px 12px;
@@ -586,7 +586,7 @@
     font-size: 12px;
   }
 
-  .dossardBadge {
+  .numberBadge {
     font-size: 11px;
     padding: 3px 8px;
   }

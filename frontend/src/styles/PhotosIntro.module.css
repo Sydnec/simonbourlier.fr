@@ -135,6 +135,13 @@
   transition: all 0.2s ease;
 }
 
+.noEvents {
+  text-align: center;
+  padding: 20px;
+  color: rgba(243, 243, 243, 0.7);
+  font-style: italic;
+}
+
 @media (max-width: 800px) {
   .main {
     padding: 30px 20px 30px;

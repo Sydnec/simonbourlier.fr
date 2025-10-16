@@ -14,8 +14,18 @@ const nextConfig = {
         hostname: 'live.staticflickr.com',
         pathname: '/**',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '8080',
+        pathname: '/events/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'photo-api.simonbourlier.fr',
+        pathname: '/events/**',
+      },
     ],
   },
 };
-
 export default nextConfig;

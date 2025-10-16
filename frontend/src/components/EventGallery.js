@@ -1,17 +1,17 @@
 import { useEffect, useState, useCallback } from "react";
-import styles from "../styles/TriathlonGallery.module.css";
+import styles from "../styles/EventGallery.module.css";
 import Image from "next/image";
 import { FaSearch, FaTimes, FaShoppingCart } from "react-icons/fa";
 
-const TriathlonGallery = () => {
+const EventGallery = ({ eventSlug, stripeCheckoutUrl }) => {
   const [photos, setPhotos] = useState([]);
   const [filteredPhotos, setFilteredPhotos] = useState([]);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [searchDossard, setSearchDossard] = useState("");
+  const [searchNumber, setSearchNumber] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isPurchasing, setIsPurchasing] = useState(false);
-  const [allDossards, setAllDossards] = useState([]);
+  const [allNumbers, setAllNumbers] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
 
   const extractText = (value) => {
@@ -24,16 +24,49 @@ const TriathlonGallery = () => {
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
-        const response = await fetch("/api/triathlon-cevennes-2025/photos");
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+        const response = await fetch(`${apiUrl}/events/${eventSlug}/photos`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch photos');
+        }
+        
         const data = await response.json();
-        setPhotos(data);
-        setFilteredPhotos(data);
-
-        const dossards = new Set();
-        data.forEach((photo) => {
-          photo.dossards?.forEach((d) => dossards.add(d));
+        
+        // Transformer les données de l'API Go pour correspondre au format attendu
+        const transformedPhotos = data.map((photo, index) => {
+          const photoUrl = `${apiUrl}${photo.url}`;
+          
+          return {
+            id: `${eventSlug}-${index}`,
+            name: photo.name,
+            title: photo.name,
+            url: photoUrl,
+            // Créer un objet sizes compatible avec l'affichage existant
+            sizes: [
+              {
+                label: 'Large',
+                source: photoUrl,
+              },
+              {
+                label: 'Large 1600',
+                source: photoUrl,
+              }
+            ],
+            // Récupérer les numéros depuis l'API
+            numbers: photo.numbers || [],
+            price: 5.0,
+          };
         });
-        setAllDossards(Array.from(dossards).sort((a, b) => a - b));
+        
+        setPhotos(transformedPhotos);
+        setFilteredPhotos(transformedPhotos);
+
+        const numbers = new Set();
+        transformedPhotos.forEach((photo) => {
+          photo.numbers?.forEach((n) => numbers.add(n));
+        });
+        setAllNumbers(Array.from(numbers).sort((a, b) => a - b));
 
         setIsLoading(false);
       } catch (error) {
@@ -42,24 +75,26 @@ const TriathlonGallery = () => {
       }
     };
 
-    fetchPhotos();
-  }, []);
+    if (eventSlug) {
+      fetchPhotos();
+    }
+  }, [eventSlug]);
 
   useEffect(() => {
-    if (searchDossard.trim() === "") {
+    if (searchNumber.trim() === "") {
       setFilteredPhotos(photos);
     } else {
-      const photosWithDossard = photos.filter((photo) =>
-        photo.dossards?.some((dossard) => dossard === searchDossard.trim())
+      const photosWithNumber = photos.filter((photo) =>
+        photo.numbers?.some((number) => number === searchNumber.trim())
       );
 
-      const photosWithoutDossard = photos.filter(
-        (photo) => !photo.dossards || photo.dossards.length === 0
+      const photosWithoutNumber = photos.filter(
+        (photo) => !photo.numbers || photo.numbers.length === 0
       );
 
-      setFilteredPhotos([...photosWithDossard, ...photosWithoutDossard]);
+      setFilteredPhotos([...photosWithNumber, ...photosWithoutNumber]);
     }
-  }, [searchDossard, photos]);
+  }, [searchNumber, photos]);
 
   const openModal = (photo) => {
     setSelectedPhoto(photo);
@@ -106,16 +141,15 @@ const TriathlonGallery = () => {
   }, [selectedPhoto, goToNext, goToPrevious, closeModal]);
 
   const handlePurchase = async () => {
-    const stripeCheckoutUrl = process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_URL;
     if (stripeCheckoutUrl) {
       window.location.href = stripeCheckoutUrl;
     } else {
-      console.error('NEXT_PUBLIC_STRIPE_CHECKOUT_URL not configured');
+      console.error('Stripe checkout URL not configured for this event');
     }
   };
 
   const clearSearch = () => {
-    setSearchDossard("");
+    setSearchNumber("");
   };
 
   const handleContextMenu = (e) => {
@@ -144,16 +178,16 @@ const TriathlonGallery = () => {
             className={styles.filterButton}
             onClick={() => setShowFilter(true)}
           >
-            <FaSearch /> Filtrer par dossard
+            <FaSearch /> Filtrer par numéro
           </button>
         ) : (
           <div className={styles.filterInputWrapper}>
             <FaSearch className={styles.filterIcon} />
             <input
               type="text"
-              placeholder="N° de dossard..."
-              value={searchDossard}
-              onChange={(e) => setSearchDossard(e.target.value)}
+              placeholder="Numéro recherché..."
+              value={searchNumber}
+              onChange={(e) => setSearchNumber(e.target.value)}
               className={styles.filterInput}
               autoFocus
             />
@@ -173,7 +207,7 @@ const TriathlonGallery = () => {
       <div className={styles.photoGrid}>
         {filteredPhotos.length === 0 ? (
           <div className={styles.noResults}>
-            <p>Aucune photo trouvée pour ce dossard</p>
+            <p>Aucune photo trouvée pour ce numéro</p>
           </div>
         ) : (
           filteredPhotos.map((photo) => {
@@ -208,11 +242,11 @@ const TriathlonGallery = () => {
                     <FaSearch className={styles.zoomIcon} />
                   </div>
                 </div>
-                {photo.dossards && photo.dossards.length > 0 && (
-                  <div className={styles.dossardsTag}>
-                    {photo.dossards.map((dossard, index) => (
-                      <span key={index} className={styles.dossardNumber}>
-                        #{dossard}
+                {photo.numbers && photo.numbers.length > 0 && (
+                  <div className={styles.numbersTag}>
+                    {photo.numbers.map((number, index) => (
+                      <span key={index} className={styles.numberBadge}>
+                        #{number}
                       </span>
                     ))}
                   </div>
@@ -289,12 +323,12 @@ const TriathlonGallery = () => {
                   {extractText(selectedPhoto.description)}
                 </p>
               )}
-              {selectedPhoto.dossards && selectedPhoto.dossards.length > 0 && (
-                <div className={styles.modalDossards}>
-                  <strong>Dossards:</strong>{" "}
-                  {selectedPhoto.dossards.map((dossard, index) => (
-                    <span key={index} className={styles.dossardBadge}>
-                      #{dossard}
+              {selectedPhoto.numbers && selectedPhoto.numbers.length > 0 && (
+                <div className={styles.modalNumbers}>
+                  <strong>Numéros:</strong>{" "}
+                  {selectedPhoto.numbers.map((number, index) => (
+                    <span key={index} className={styles.numberBadge}>
+                      #{number}
                     </span>
                   ))}
                 </div>
@@ -312,7 +346,7 @@ const TriathlonGallery = () => {
           <button
             className={styles.bannerButton}
             onClick={handlePurchase}
-            disabled={isPurchasing}
+            disabled={isPurchasing || !stripeCheckoutUrl}
           >
             <FaShoppingCart />
             {isPurchasing ? "Traitement..." : "Accéder au paiement"}
@@ -323,4 +357,4 @@ const TriathlonGallery = () => {
   );
 };
 
-export default TriathlonGallery;
+export default EventGallery;
