@@ -35,10 +35,6 @@ const About = () => {
             height={500}
             className={styles.photo}
           />
-          <div className={styles.location}>
-            <i className="fas fa-map-marker-alt"></i>
-            <p>Basé à Alès (30)</p>
-          </div>
         </div>
       </div>
     </div>

@@ -59,16 +59,3 @@
   color: var(--dark-color);
   margin-bottom: 2rem;
 }
-
-.location {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  color: var(--dark-color);
-  margin-top: 0.4rem;
-}
-
-.location i {
-  color: var(--dark-color);
-}
