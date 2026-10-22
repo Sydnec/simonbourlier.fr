@@ -13,6 +13,8 @@ Interface web responsive avec galerie photos (album Flickr) et formulaire de con
 
 ## Installation
 
+Node.js 22 ou 24 (LTS) est requis ; Next.js 16 exige au minimum la 20.9.
+
 ```bash
 cd frontend
 npm install

@@ -4,6 +4,8 @@ Application Next.js pour le site web de Simon Bourlier.
 
 ## Installation
 
+Node.js 22 ou 24 (LTS) est requis ; Next.js 16 exige au minimum la 20.9.
+
 ```bash
 npm install
 ```
