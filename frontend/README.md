@@ -4,7 +4,7 @@ Application Next.js pour le site web de Simon Bourlier.
 
 ## Installation
 
-Node.js 22 ou 24 (LTS) est requis ; Next.js 16 exige au minimum la 20.9.
+Node.js 24 (LTS) est requis : `engines` dans `frontend/package.json` le fixe, et Vercel construit avec cette version (Node 20 n'y est plus accepté depuis le 1er octobre 2026).
 
 ```bash
 npm install
