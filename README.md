@@ -1,34 +1,19 @@
-# Simon Bourlier - Site Web & API Photos
+# Simon Bourlier - Site Web
 
-Site web personnel de Simon Bourlier, photographe événementiel, avec système de galeries photos dynamiques.
+Site web personnel de Simon Bourlier, photographe événementiel.
 
 ## Architecture
 
-Le projet est composé de deux parties :
+Le projet est un frontend Next.js déployé directement sur Vercel, sans backend.
 
 ### 📱 Frontend (Next.js)
-Interface web responsive avec galeries photos dynamiques et système de paiement Stripe.
+Interface web responsive avec galerie photos (album Flickr) et formulaire de contact.
 
 **Voir [frontend/README.md](frontend/README.md) pour plus de détails**
 
-### 🚀 API (Go)
-API REST pour servir les photos et gérer les événements avec extraction automatique des métadonnées EXIF.
+## Installation
 
-**Voir [api/README.md](api/README.md) pour plus de détails**
-
-## Installation complète
-
-### 1. API Go
-
-```bash
-cd api
-./install.sh
-./start.sh
-```
-
-L'API sera accessible sur \`http://localhost:8080\`
-
-### 2. Frontend Next.js
+Node.js 24 (LTS) est requis : `engines` dans `frontend/package.json` le fixe, et Vercel construit avec cette version (Node 20 n'y est plus accepté depuis le 1er octobre 2026).
 
 ```bash
 cd frontend
@@ -36,15 +21,13 @@ npm install
 npm run dev
 ```
 
-Le site sera accessible sur \`http://localhost:3000\`
+Le site sera accessible sur `http://localhost:3000`
 
 ## Fonctionnalités
 
-- ✅ **Galeries dynamiques** - Ajoutez simplement un dossier avec des photos dans \`api/events/\`
-- ✅ **Extraction EXIF automatique** - Les numéros sont lus depuis les tags Keywords/Subject
-- ✅ **Filtre intelligent** - Recherche par numéro avec affichage optimisé
-- ✅ **Paiement Stripe** - Configuration par événement
-- ✅ **Protection des images** - Anti-téléchargement et watermark visuel
+- ✅ **Galerie photos** - Album Flickr servi par la route `/api/photos`
+- ✅ **Références clients** - Logos lus depuis `public/images/customers/`
+- ✅ **Formulaire de contact** - Envoi via EmailJS
 - ✅ **Responsive** - Compatible mobile, tablette et desktop
 
 ## Structure du projet
@@ -57,57 +40,16 @@ simonbourlier.fr/
 │   │   ├── components/
 │   │   └── styles/
 │   └── public/
-├── api/               # API Go
-│   ├── main.go
-│   ├── events/        # Photos des événements
-│   └── events-config.json
 └── README.md
 ```
 
-## Ajout d'un événement
-
-1. Créer un dossier dans \`api/events/\` : \`api/events/mon-evenement-2025/\`
-2. Ajouter vos photos avec métadonnées EXIF (Keywords/Subject)
-3. Configurer Stripe dans \`api/events-config.json\` :
-```json
-{
-  "mon-evenement-2025": {
-    "stripeCheckoutUrl": "https://buy.stripe.com/..."
-  }
-}
-```
-4. Redémarrer l'API : \`cd api && ./restart.sh\`
-
-L'événement apparaît automatiquement sur \`/photos\` !
-
-## Ajout de numéros aux photos
-
-Utilisez \`exiftool\` pour ajouter des numéros (dossards, etc.) aux photos :
-
-```bash
-# Ajouter des numéros à une photo
-exiftool -Keywords="055, 056" -Subject="055, 056" photo.jpg
-
-# Ajouter en masse
-exiftool -Keywords="123" -Subject="123" photo1.jpg photo2.jpg
-```
-
-Les numéros seront automatiquement extraits et affichés dans la galerie.
-
 ## Production
 
-### Frontend (Vercel/Netlify)
+Le frontend est déployé sur Vercel. Pour vérifier le build en local :
+
 ```bash
 cd frontend
 npm run build
 ```
 
-### API (VPS/Cloud)
-```bash
-cd api
-ENV=production ./start.sh
-```
-
-Variables d'environnement à configurer :
-- \`ENV=production\` pour l'API
-- \`NEXT_PUBLIC_API_URL=https://photo-api.simonbourlier.fr\` pour le frontend
+Les variables d'environnement à configurer sur Vercel sont listées dans [frontend/README.md](frontend/README.md).

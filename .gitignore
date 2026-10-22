@@ -5,12 +5,6 @@ frontend/.env
 frontend/.env*.local
 frontend/.DS_Store
 
-# API
-api/photos-api
-api/api.log
-api/nohup.out
-api/events/*/
-
 # Root
 .DS_Store
 *.log
