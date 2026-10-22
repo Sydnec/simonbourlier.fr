@@ -18,20 +18,27 @@ Le site sera accessible sur `http://localhost:3000`
 
 ## Variables d'environnement
 
-Créez un fichier `.env.local` avec :
+Créez un fichier `.env.local` (modèle : `.env.example`) avec :
 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:8080
+# Galerie : album Flickr lu côté serveur par /api/photos
+FLICKR_API_KEY=
+FLICKR_USER_ID=
+FLICKR_ALBUM_ID=
+
+# Formulaire de contact (EmailJS)
+NEXT_PUBLIC_EMAIL_SERVICE_ID=
+NEXT_PUBLIC_EMAIL_TEMPLATE_ID=
+NEXT_PUBLIC_EMAIL_ACCOUNT_ID=
 ```
 
-En production :
-```env
-NEXT_PUBLIC_API_URL=https://photo-api.simonbourlier.fr
-```
+En production, les mêmes variables sont à définir dans le projet Vercel. Les `NEXT_PUBLIC_*` sont
+intégrées au build : un redéploiement est nécessaire après les avoir modifiées.
 
 ## Build
 
 ```bash
+npm run lint
 npm run build
 npm start
 ```
@@ -45,8 +52,7 @@ npm start
 
 ## Fonctionnalités
 
-- Affichage dynamique des événements depuis l'API Go
-- Galerie photos avec filtre par numéro
-- Système de paiement Stripe intégré
-- Protection anti-téléchargement des images
+- Galerie photos alimentée par un album Flickr
+- Logos des clients lus depuis `public/images/customers/`
+- Formulaire de contact via EmailJS
 - Design responsive

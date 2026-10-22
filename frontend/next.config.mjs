@@ -14,25 +14,29 @@ const nextConfig = {
         hostname: 'live.staticflickr.com',
         pathname: '/**',
       },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3004',
-        pathname: '/events/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'photos-api.simonbourlier.fr',
-        pathname: '/events/**',
-      },
     ],
   },
   async redirects() {
     return [
       {
+        // Galerie d'un événement passé, retirée avec l'API photos. Temporaire : le slug pourra
+        // resservir à une nouvelle galerie sans qu'une 308 reste en cache dans les navigateurs.
+        source: '/duathlon-cevennes-2025',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        // Adresse déjà partagée qui menait vers /photos : même traitement.
         source: '/triathlon-cevennes-2025',
-        destination: '/photos',
+        destination: '/',
         permanent: true,
+      },
+      {
+        // Les navigateurs gardent l'ancienne 308 /triathlon-cevennes-2025 -> /photos : /photos doit
+        // donc rediriger aussi. Temporaire, pour pouvoir recréer une page photos sans 308 en cache.
+        source: '/photos',
+        destination: '/',
+        permanent: false,
       },
     ];
   },
